@@ -1,0 +1,8 @@
+Para compilar:
+  ocamllex lexico.mll
+  ocamlc -c lexico.ml
+  ocamlc -c pre_processador.ml
+Para usar:
+  rlwrap ocaml
+  #use "carregador.ml";;
+  lex "tests/micro10.py";;

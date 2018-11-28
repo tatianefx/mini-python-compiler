@@ -1,0 +1,1445 @@
+programa: DEF ID APAR FPAR SETA STR DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 147.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA INDENTA . comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR FPAR SETA STR DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 146.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA . INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR FPAR SETA STR DPONTOS WHILE
+##
+## Ends in an error in state: 145.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS . NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR FPAR SETA STR WHILE
+##
+## Ends in an error in state: 144.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo . DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR FPAR SETA WHILE
+##
+## Ends in an error in state: 143.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA . tipo DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR FPAR WHILE
+##
+## Ends in an error in state: 142.
+##
+## funcao -> DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR . SETA tipo DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR ID DPONTOS BOOL VIRG WHILE
+##
+## Ends in an error in state: 139.
+##
+## separated_nonempty_list(VIRG,parametro) -> parametro VIRG . separated_nonempty_list(VIRG,parametro) [ FPAR ]
+##
+## The known suffix of the stack is as follows:
+## parametro VIRG 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR ID DPONTOS BOOL WHILE
+##
+## Ends in an error in state: 138.
+##
+## separated_nonempty_list(VIRG,parametro) -> parametro . [ FPAR ]
+## separated_nonempty_list(VIRG,parametro) -> parametro . VIRG separated_nonempty_list(VIRG,parametro) [ FPAR ]
+##
+## The known suffix of the stack is as follows:
+## parametro 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR ID DPONTOS WHILE
+##
+## Ends in an error in state: 130.
+##
+## parametro -> ID DPONTOS . tipo [ VIRG FPAR ]
+##
+## The known suffix of the stack is as follows:
+## ID DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR ID WHILE
+##
+## Ends in an error in state: 129.
+##
+## parametro -> ID . DPONTOS tipo [ VIRG FPAR ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID APAR WHILE
+##
+## Ends in an error in state: 128.
+##
+## funcao -> DEF ID APAR . loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF ID WHILE
+##
+## Ends in an error in state: 127.
+##
+## funcao -> DEF ID . APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: DEF WHILE
+##
+## Ends in an error in state: 126.
+##
+## funcao -> DEF . ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR SETA tipo DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF ]
+##
+## The known suffix of the stack is as follows:
+## DEF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG LITSTRING FPAR DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 85.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA . comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG LITSTRING FPAR DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 84.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA . INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG LITSTRING FPAR DPONTOS WHILE
+##
+## Ends in an error in state: 83.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS . NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG LITSTRING FPAR WHILE
+##
+## Ends in an error in state: 82.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR . DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG LITSTRING WHILE
+##
+## Ends in an error in state: 81.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica . FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING VIRG WHILE
+##
+## Ends in an error in state: 80.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG . exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR LITSTRING WHILE
+##
+## Ends in an error in state: 79.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica . VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE APAR WHILE
+##
+## Ends in an error in state: 78.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE APAR . exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN RANGE WHILE
+##
+## Ends in an error in state: 77.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN RANGE . APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN RANGE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING IN WHILE
+##
+## Ends in an error in state: 76.
+##
+## loopFOR -> FOR exprLogicoAritmetica IN . RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica IN 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR LITSTRING WHILE
+##
+## Ends in an error in state: 75.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE E DIVIDIDO DIFERENTE ]
+## loopFOR -> FOR exprLogicoAritmetica . IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: FOR WHILE
+##
+## Ends in an error in state: 74.
+##
+## loopFOR -> FOR . exprLogicoAritmetica IN RANGE APAR exprLogicoAritmetica VIRG exprLogicoAritmetica FPAR DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## FOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID APAR FPAR WHILE
+##
+## Ends in an error in state: 103.
+##
+## chamadafuncao -> chamada . NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## chamada 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID APAR LITSTRING VIRG WHILE
+##
+## Ends in an error in state: 44.
+##
+## separated_nonempty_list(VIRG,exprLogicoAritmetica) -> exprLogicoAritmetica VIRG . separated_nonempty_list(VIRG,exprLogicoAritmetica) [ FPAR ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica VIRG 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID APAR LITSTRING WHILE
+##
+## Ends in an error in state: 43.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## separated_nonempty_list(VIRG,exprLogicoAritmetica) -> exprLogicoAritmetica . [ FPAR ]
+## separated_nonempty_list(VIRG,exprLogicoAritmetica) -> exprLogicoAritmetica . VIRG separated_nonempty_list(VIRG,exprLogicoAritmetica) [ FPAR ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID APAR WHILE
+##
+## Ends in an error in state: 9.
+##
+## chamada -> ID APAR . loption(separated_nonempty_list(VIRG,exprLogicoAritmetica)) FPAR [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## ID APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID ATRIB LITSTRING WHILE
+##
+## Ends in an error in state: 72.
+##
+## atribuicao -> ID ATRIB exprLogicoAritmetica . NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## ID ATRIB exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID ATRIB WHILE
+##
+## Ends in an error in state: 71.
+##
+## atribuicao -> ID ATRIB . exprLogicoAritmetica NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ID ATRIB 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: ID WHILE
+##
+## Ends in an error in state: 70.
+##
+## atribuicao -> ID . ATRIB exprLogicoAritmetica NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+## chamada -> ID . APAR loption(separated_nonempty_list(VIRG,exprLogicoAritmetica)) FPAR [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA VIRG
+##
+## Ends in an error in state: 120.
+##
+## condicaoELIFELSE -> ELIF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA . option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELIF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF LITSTRING DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 118.
+##
+## condicaoELIFELSE -> ELIF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA . comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELIF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF LITSTRING DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 117.
+##
+## condicaoELIFELSE -> ELIF exprLogicoAritmetica DPONTOS NOVALINHA . INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELIF exprLogicoAritmetica DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF LITSTRING DPONTOS WHILE
+##
+## Ends in an error in state: 116.
+##
+## condicaoELIFELSE -> ELIF exprLogicoAritmetica DPONTOS . NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELIF exprLogicoAritmetica DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF LITSTRING WHILE
+##
+## Ends in an error in state: 115.
+##
+## condicaoELIFELSE -> ELIF exprLogicoAritmetica . DPONTOS NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## ELIF exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELIF WHILE
+##
+## Ends in an error in state: 114.
+##
+## condicaoELIFELSE -> ELIF . exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELIF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELSE DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 111.
+##
+## condicaoELIFELSE -> ELSE DPONTOS NOVALINHA INDENTA . comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELSE DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELSE DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 110.
+##
+## condicaoELIFELSE -> ELSE DPONTOS NOVALINHA . INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELSE DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELSE DPONTOS WHILE
+##
+## Ends in an error in state: 109.
+##
+## condicaoELIFELSE -> ELSE DPONTOS . NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELSE DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA ELSE WHILE
+##
+## Ends in an error in state: 108.
+##
+## condicaoELIFELSE -> ELSE . DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## ELSE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA DEDENTA VIRG
+##
+## Ends in an error in state: 107.
+##
+## condicaoIF -> IF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA . option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## IF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 69.
+##
+## condicaoIF -> IF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA . comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## IF exprLogicoAritmetica DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 68.
+##
+## condicaoIF -> IF exprLogicoAritmetica DPONTOS NOVALINHA . INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## IF exprLogicoAritmetica DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING DPONTOS WHILE
+##
+## Ends in an error in state: 67.
+##
+## condicaoIF -> IF exprLogicoAritmetica DPONTOS . NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## IF exprLogicoAritmetica DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF LITSTRING WHILE
+##
+## Ends in an error in state: 66.
+##
+## condicaoIF -> IF exprLogicoAritmetica . DPONTOS NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## IF exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: IF WHILE
+##
+## Ends in an error in state: 65.
+##
+## condicaoIF -> IF . exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA option(condicaoELIFELSE) [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## IF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTF LITSTRING WHILE
+##
+## Ends in an error in state: 64.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## leiaf -> INPUTF exprLogicoAritmetica . [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTF exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTF WHILE
+##
+## Ends in an error in state: 63.
+##
+## leiaf -> INPUTF . exprLogicoAritmetica [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTI LITSTRING WHILE
+##
+## Ends in an error in state: 62.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## leiai -> INPUTI exprLogicoAritmetica . [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTI exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTI WHILE
+##
+## Ends in an error in state: 61.
+##
+## leiai -> INPUTI . exprLogicoAritmetica [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTI 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTS LITSTRING WHILE
+##
+## Ends in an error in state: 60.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## leias -> INPUTS exprLogicoAritmetica . [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTS exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: INPUTS WHILE
+##
+## Ends in an error in state: 59.
+##
+## leias -> INPUTS . exprLogicoAritmetica [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## INPUTS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: PRINT LITSTRING WHILE
+##
+## Ends in an error in state: 57.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## print -> PRINT exprLogicoAritmetica . NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## PRINT exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: PRINT WHILE
+##
+## Ends in an error in state: 56.
+##
+## print -> PRINT . exprLogicoAritmetica NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## PRINT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: RETURN LITSTRING WHILE
+##
+## Ends in an error in state: 55.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DIVIDIDO DIFERENTE ]
+## option(exprLogicoAritmetica) -> exprLogicoAritmetica . [ NOVALINHA ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: RETURN NOVALINHA VIRG
+##
+## Ends in an error in state: 153.
+##
+## list(instrucao) -> instrucao . list(instrucao) [ EOF ]
+##
+## The known suffix of the stack is as follows:
+## instrucao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: RETURN WHILE
+##
+## Ends in an error in state: 52.
+##
+## retorno -> RETURN . option(exprLogicoAritmetica) NOVALINHA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## RETURN 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: VIRG
+##
+## Ends in an error in state: 0.
+##
+## programa' -> . programa [ # ]
+##
+## The known suffix of the stack is as follows:
+## 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE APAR LITSTRING WHILE
+##
+## Ends in an error in state: 11.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE FPAR E DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> APAR exprLogicoAritmetica . FPAR [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## APAR exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE APAR WHILE
+##
+## Ends in an error in state: 10.
+##
+## exprLogicoAritmetica -> APAR . exprLogicoAritmetica FPAR [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE ID WHILE
+##
+## Ends in an error in state: 8.
+##
+## chamada -> ID . APAR loption(separated_nonempty_list(VIRG,exprLogicoAritmetica)) FPAR [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> ID . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DIFERENTE LITSTRING WHILE
+##
+## Ends in an error in state: 38.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica DIFERENTE exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica DIFERENTE exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DIFERENTE WHILE
+##
+## Ends in an error in state: 37.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica DIFERENTE . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica DIFERENTE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DIVIDIDO WHILE
+##
+## Ends in an error in state: 21.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica DIVIDIDO . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica DIVIDIDO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DPONTOS NOVALINHA INDENTA RETURN NOVALINHA VIRG
+##
+## Ends in an error in state: 100.
+##
+## nonempty_list(comando) -> comando . [ DEDENTA ]
+## nonempty_list(comando) -> comando . nonempty_list(comando) [ DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## comando 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DPONTOS NOVALINHA INDENTA VIRG
+##
+## Ends in an error in state: 51.
+##
+## loopWhile -> WHILE exprLogicoAritmetica DPONTOS NOVALINHA INDENTA . comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## WHILE exprLogicoAritmetica DPONTOS NOVALINHA INDENTA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DPONTOS NOVALINHA WHILE
+##
+## Ends in an error in state: 50.
+##
+## loopWhile -> WHILE exprLogicoAritmetica DPONTOS NOVALINHA . INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## WHILE exprLogicoAritmetica DPONTOS NOVALINHA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING DPONTOS WHILE
+##
+## Ends in an error in state: 49.
+##
+## loopWhile -> WHILE exprLogicoAritmetica DPONTOS . NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## WHILE exprLogicoAritmetica DPONTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING E LITSTRING WHILE
+##
+## Ends in an error in state: 36.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica E exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica E exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING E WHILE
+##
+## Ends in an error in state: 35.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica E . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica E 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING IGUALDADE LITSTRING WHILE
+##
+## Ends in an error in state: 34.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica IGUALDADE exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica IGUALDADE exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING IGUALDADE WHILE
+##
+## Ends in an error in state: 33.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica IGUALDADE . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica IGUALDADE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIOR LITSTRING WHILE
+##
+## Ends in an error in state: 32.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIOR exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIOR exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIOR WHILE
+##
+## Ends in an error in state: 31.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIOR . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIORIGUAL LITSTRING WHILE
+##
+## Ends in an error in state: 30.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIORIGUAL exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIORIGUAL exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIORIGUAL WHILE
+##
+## Ends in an error in state: 29.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIORIGUAL . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIORIGUAL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIS LITSTRING WHILE
+##
+## Ends in an error in state: 26.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIS exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIS exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MAIS WHILE
+##
+## Ends in an error in state: 25.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MAIS . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MAIS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENOR LITSTRING WHILE
+##
+## Ends in an error in state: 28.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MENOR exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENOR exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENOR WHILE
+##
+## Ends in an error in state: 27.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MENOR . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENORIGUAL LITSTRING WHILE
+##
+## Ends in an error in state: 24.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MENORIGUAL exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENORIGUAL exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENORIGUAL WHILE
+##
+## Ends in an error in state: 23.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MENORIGUAL . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENORIGUAL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENOS LITSTRING WHILE
+##
+## Ends in an error in state: 20.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica MENOS exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENOS exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MENOS WHILE
+##
+## Ends in an error in state: 19.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MENOS . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MENOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING MODULO WHILE
+##
+## Ends in an error in state: 17.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica MODULO . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica MODULO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING OU LITSTRING WHILE
+##
+## Ends in an error in state: 16.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica OU exprLogicoAritmetica . [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica OU exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING OU WHILE
+##
+## Ends in an error in state: 15.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica OU . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica OU 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING VEZES WHILE
+##
+## Ends in an error in state: 12.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica VEZES . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## exprLogicoAritmetica VEZES 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE LITSTRING WHILE
+##
+## Ends in an error in state: 48.
+##
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOS exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . VEZES exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIVIDIDO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MODULO exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . IGUALDADE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MAIORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENOR exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . MENORIGUAL exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . DIFERENTE exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . E exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## exprLogicoAritmetica -> exprLogicoAritmetica . OU exprLogicoAritmetica [ VEZES OU MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUALDADE E DPONTOS DIVIDIDO DIFERENTE ]
+## loopWhile -> WHILE exprLogicoAritmetica . DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## WHILE exprLogicoAritmetica 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE MENOS WHILE
+##
+## Ends in an error in state: 3.
+##
+## exprLogicoAritmetica -> MENOS . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## MENOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE NOT WHILE
+##
+## Ends in an error in state: 2.
+##
+## exprLogicoAritmetica -> NOT . exprLogicoAritmetica [ VIRG VEZES OU NOVALINHA MODULO MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUALDADE FPAR E DPONTOS DIVIDIDO DIFERENTE ]
+##
+## The known suffix of the stack is as follows:
+## NOT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+programa: WHILE WHILE
+##
+## Ends in an error in state: 1.
+##
+## loopWhile -> WHILE . exprLogicoAritmetica DPONTOS NOVALINHA INDENTA comandos DEDENTA [ WHILE RETURN PRINT INPUTS INPUTI INPUTF IF ID FOR EOF DEF DEDENTA ]
+##
+## The known suffix of the stack is as follows:
+## WHILE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+

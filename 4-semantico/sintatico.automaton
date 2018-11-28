@@ -1,0 +1,1707 @@
+State 0:
+programa' -> . programa [ # ]
+-- On PROGRAMA shift to state 1
+-- On programa shift to state 144
+
+State 1:
+programa -> PROGRAMA . list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) FIM PTV EOF [ # ]
+-- On ID shift to state 2
+-- On separated_nonempty_list(VIRG,ID) shift to state 5
+-- On list(declaracao_de_variavel) shift to state 33
+-- On declaracao_de_variavel shift to state 134
+-- On INICIO reduce production list(declaracao_de_variavel) -> 
+-- On FUNCAO reduce production list(declaracao_de_variavel) -> 
+
+State 2:
+separated_nonempty_list(VIRG,ID) -> ID . [ DPTOS ]
+separated_nonempty_list(VIRG,ID) -> ID . VIRG separated_nonempty_list(VIRG,ID) [ DPTOS ]
+-- On VIRG shift to state 3
+-- On DPTOS reduce production separated_nonempty_list(VIRG,ID) -> ID 
+
+State 3:
+separated_nonempty_list(VIRG,ID) -> ID VIRG . separated_nonempty_list(VIRG,ID) [ DPTOS ]
+-- On ID shift to state 2
+-- On separated_nonempty_list(VIRG,ID) shift to state 4
+
+State 4:
+separated_nonempty_list(VIRG,ID) -> ID VIRG separated_nonempty_list(VIRG,ID) . [ DPTOS ]
+-- On DPTOS reduce production separated_nonempty_list(VIRG,ID) -> ID VIRG separated_nonempty_list(VIRG,ID) 
+
+State 5:
+declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) . DPTOS tipo PTV [ INICIO ID FUNCAO ]
+-- On DPTOS shift to state 6
+
+State 6:
+declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS . tipo PTV [ INICIO ID FUNCAO ]
+-- On REGISTRO shift to state 7
+-- On INTEIRO shift to state 10
+-- On CADEIA shift to state 11
+-- On BOOLEANO shift to state 12
+-- On ARRANJO shift to state 13
+-- On tipo_simples shift to state 21
+-- On tipo_registro shift to state 22
+-- On tipo_arranjo shift to state 23
+-- On tipo shift to state 31
+
+State 7:
+tipo_registro -> REGISTRO . nonempty_list(__anonymous_0) FIM REGISTRO [ VIRG PTV INICIO ID FPAR ]
+-- On ID shift to state 8
+-- On nonempty_list(__anonymous_0) shift to state 28
+
+State 8:
+nonempty_list(__anonymous_0) -> ID . DPTOS tipo PTV [ FIM ]
+nonempty_list(__anonymous_0) -> ID . DPTOS tipo PTV nonempty_list(__anonymous_0) [ FIM ]
+-- On DPTOS shift to state 9
+
+State 9:
+nonempty_list(__anonymous_0) -> ID DPTOS . tipo PTV [ FIM ]
+nonempty_list(__anonymous_0) -> ID DPTOS . tipo PTV nonempty_list(__anonymous_0) [ FIM ]
+-- On REGISTRO shift to state 7
+-- On INTEIRO shift to state 10
+-- On CADEIA shift to state 11
+-- On BOOLEANO shift to state 12
+-- On ARRANJO shift to state 13
+-- On tipo_simples shift to state 21
+-- On tipo_registro shift to state 22
+-- On tipo_arranjo shift to state 23
+-- On tipo shift to state 25
+
+State 10:
+tipo_simples -> INTEIRO . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo_simples -> INTEIRO 
+-- On PTV reduce production tipo_simples -> INTEIRO 
+-- On INICIO reduce production tipo_simples -> INTEIRO 
+-- On ID reduce production tipo_simples -> INTEIRO 
+-- On FPAR reduce production tipo_simples -> INTEIRO 
+
+State 11:
+tipo_simples -> CADEIA . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo_simples -> CADEIA 
+-- On PTV reduce production tipo_simples -> CADEIA 
+-- On INICIO reduce production tipo_simples -> CADEIA 
+-- On ID reduce production tipo_simples -> CADEIA 
+-- On FPAR reduce production tipo_simples -> CADEIA 
+
+State 12:
+tipo_simples -> BOOLEANO . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo_simples -> BOOLEANO 
+-- On PTV reduce production tipo_simples -> BOOLEANO 
+-- On INICIO reduce production tipo_simples -> BOOLEANO 
+-- On ID reduce production tipo_simples -> BOOLEANO 
+-- On FPAR reduce production tipo_simples -> BOOLEANO 
+
+State 13:
+tipo_arranjo -> ARRANJO . ACOL limites FCOL DE tipo [ VIRG PTV INICIO ID FPAR ]
+-- On ACOL shift to state 14
+
+State 14:
+tipo_arranjo -> ARRANJO ACOL . limites FCOL DE tipo [ VIRG PTV INICIO ID FPAR ]
+-- On INT shift to state 15
+-- On limites shift to state 18
+
+State 15:
+limites -> INT . PPTO INT [ FCOL ]
+-- On PPTO shift to state 16
+
+State 16:
+limites -> INT PPTO . INT [ FCOL ]
+-- On INT shift to state 17
+
+State 17:
+limites -> INT PPTO INT . [ FCOL ]
+-- On FCOL reduce production limites -> INT PPTO INT 
+
+State 18:
+tipo_arranjo -> ARRANJO ACOL limites . FCOL DE tipo [ VIRG PTV INICIO ID FPAR ]
+-- On FCOL shift to state 19
+
+State 19:
+tipo_arranjo -> ARRANJO ACOL limites FCOL . DE tipo [ VIRG PTV INICIO ID FPAR ]
+-- On DE shift to state 20
+
+State 20:
+tipo_arranjo -> ARRANJO ACOL limites FCOL DE . tipo [ VIRG PTV INICIO ID FPAR ]
+-- On REGISTRO shift to state 7
+-- On INTEIRO shift to state 10
+-- On CADEIA shift to state 11
+-- On BOOLEANO shift to state 12
+-- On ARRANJO shift to state 13
+-- On tipo_simples shift to state 21
+-- On tipo_registro shift to state 22
+-- On tipo_arranjo shift to state 23
+-- On tipo shift to state 24
+
+State 21:
+tipo -> tipo_simples . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo -> tipo_simples 
+-- On PTV reduce production tipo -> tipo_simples 
+-- On INICIO reduce production tipo -> tipo_simples 
+-- On ID reduce production tipo -> tipo_simples 
+-- On FPAR reduce production tipo -> tipo_simples 
+
+State 22:
+tipo -> tipo_registro . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo -> tipo_registro 
+-- On PTV reduce production tipo -> tipo_registro 
+-- On INICIO reduce production tipo -> tipo_registro 
+-- On ID reduce production tipo -> tipo_registro 
+-- On FPAR reduce production tipo -> tipo_registro 
+
+State 23:
+tipo -> tipo_arranjo . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo -> tipo_arranjo 
+-- On PTV reduce production tipo -> tipo_arranjo 
+-- On INICIO reduce production tipo -> tipo_arranjo 
+-- On ID reduce production tipo -> tipo_arranjo 
+-- On FPAR reduce production tipo -> tipo_arranjo 
+
+State 24:
+tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo 
+-- On PTV reduce production tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo 
+-- On INICIO reduce production tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo 
+-- On ID reduce production tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo 
+-- On FPAR reduce production tipo_arranjo -> ARRANJO ACOL limites FCOL DE tipo 
+
+State 25:
+nonempty_list(__anonymous_0) -> ID DPTOS tipo . PTV [ FIM ]
+nonempty_list(__anonymous_0) -> ID DPTOS tipo . PTV nonempty_list(__anonymous_0) [ FIM ]
+-- On PTV shift to state 26
+
+State 26:
+nonempty_list(__anonymous_0) -> ID DPTOS tipo PTV . [ FIM ]
+nonempty_list(__anonymous_0) -> ID DPTOS tipo PTV . nonempty_list(__anonymous_0) [ FIM ]
+-- On ID shift to state 8
+-- On nonempty_list(__anonymous_0) shift to state 27
+-- On FIM reduce production nonempty_list(__anonymous_0) -> ID DPTOS tipo PTV 
+
+State 27:
+nonempty_list(__anonymous_0) -> ID DPTOS tipo PTV nonempty_list(__anonymous_0) . [ FIM ]
+-- On FIM reduce production nonempty_list(__anonymous_0) -> ID DPTOS tipo PTV nonempty_list(__anonymous_0) 
+
+State 28:
+tipo_registro -> REGISTRO nonempty_list(__anonymous_0) . FIM REGISTRO [ VIRG PTV INICIO ID FPAR ]
+-- On FIM shift to state 29
+
+State 29:
+tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM . REGISTRO [ VIRG PTV INICIO ID FPAR ]
+-- On REGISTRO shift to state 30
+
+State 30:
+tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO . [ VIRG PTV INICIO ID FPAR ]
+-- On VIRG reduce production tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO 
+-- On PTV reduce production tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO 
+-- On INICIO reduce production tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO 
+-- On ID reduce production tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO 
+-- On FPAR reduce production tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM REGISTRO 
+
+State 31:
+declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS tipo . PTV [ INICIO ID FUNCAO ]
+-- On PTV shift to state 32
+
+State 32:
+declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS tipo PTV . [ INICIO ID FUNCAO ]
+-- On INICIO reduce production declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS tipo PTV 
+-- On ID reduce production declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS tipo PTV 
+-- On FUNCAO reduce production declaracao_de_variavel -> separated_nonempty_list(VIRG,ID) DPTOS tipo PTV 
+
+State 33:
+programa -> PROGRAMA list(declaracao_de_variavel) . list(declaracao_de_funcao) INICIO list(comando) FIM PTV EOF [ # ]
+-- On FUNCAO shift to state 34
+-- On list(declaracao_de_funcao) shift to state 136
+-- On declaracao_de_funcao shift to state 142
+-- On INICIO reduce production list(declaracao_de_funcao) -> 
+
+State 34:
+declaracao_de_funcao -> FUNCAO . ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On ID shift to state 35
+
+State 35:
+declaracao_de_funcao -> FUNCAO ID . APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On APAR shift to state 36
+
+State 36:
+declaracao_de_funcao -> FUNCAO ID APAR . loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On ID shift to state 37
+-- On separated_nonempty_list(VIRG,parametro) shift to state 40
+-- On parametro shift to state 41
+-- On loption(separated_nonempty_list(VIRG,parametro)) shift to state 44
+-- On FPAR reduce production loption(separated_nonempty_list(VIRG,parametro)) -> 
+
+State 37:
+parametro -> ID . DPTOS tipo [ VIRG FPAR ]
+-- On DPTOS shift to state 38
+
+State 38:
+parametro -> ID DPTOS . tipo [ VIRG FPAR ]
+-- On REGISTRO shift to state 7
+-- On INTEIRO shift to state 10
+-- On CADEIA shift to state 11
+-- On BOOLEANO shift to state 12
+-- On ARRANJO shift to state 13
+-- On tipo_simples shift to state 21
+-- On tipo_registro shift to state 22
+-- On tipo_arranjo shift to state 23
+-- On tipo shift to state 39
+
+State 39:
+parametro -> ID DPTOS tipo . [ VIRG FPAR ]
+-- On VIRG reduce production parametro -> ID DPTOS tipo 
+-- On FPAR reduce production parametro -> ID DPTOS tipo 
+
+State 40:
+loption(separated_nonempty_list(VIRG,parametro)) -> separated_nonempty_list(VIRG,parametro) . [ FPAR ]
+-- On FPAR reduce production loption(separated_nonempty_list(VIRG,parametro)) -> separated_nonempty_list(VIRG,parametro) 
+
+State 41:
+separated_nonempty_list(VIRG,parametro) -> parametro . [ FPAR ]
+separated_nonempty_list(VIRG,parametro) -> parametro . VIRG separated_nonempty_list(VIRG,parametro) [ FPAR ]
+-- On VIRG shift to state 42
+-- On FPAR reduce production separated_nonempty_list(VIRG,parametro) -> parametro 
+
+State 42:
+separated_nonempty_list(VIRG,parametro) -> parametro VIRG . separated_nonempty_list(VIRG,parametro) [ FPAR ]
+-- On ID shift to state 37
+-- On separated_nonempty_list(VIRG,parametro) shift to state 43
+-- On parametro shift to state 41
+
+State 43:
+separated_nonempty_list(VIRG,parametro) -> parametro VIRG separated_nonempty_list(VIRG,parametro) . [ FPAR ]
+-- On FPAR reduce production separated_nonempty_list(VIRG,parametro) -> parametro VIRG separated_nonempty_list(VIRG,parametro) 
+
+State 44:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) . FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On FPAR shift to state 45
+
+State 45:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR . DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On DPTOS shift to state 46
+
+State 46:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS . tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On REGISTRO shift to state 7
+-- On INTEIRO shift to state 10
+-- On CADEIA shift to state 11
+-- On BOOLEANO shift to state 12
+-- On ARRANJO shift to state 13
+-- On tipo_simples shift to state 21
+-- On tipo_registro shift to state 22
+-- On tipo_arranjo shift to state 23
+-- On tipo shift to state 47
+
+State 47:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo . list(declaracao_de_variavel) INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On ID shift to state 2
+-- On separated_nonempty_list(VIRG,ID) shift to state 5
+-- On list(declaracao_de_variavel) shift to state 48
+-- On declaracao_de_variavel shift to state 134
+-- On INICIO reduce production list(declaracao_de_variavel) -> 
+
+State 48:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) . INICIO list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On INICIO shift to state 49
+
+State 49:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO . list(comando) FIM PTV [ INICIO FUNCAO ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On list(comando) shift to state 129
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 132
+-- On chamada shift to state 123
+-- On FIM reduce production list(comando) -> 
+
+State 50:
+expressao -> STRING . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> STRING 
+-- On PTV reduce production expressao -> STRING 
+-- On OULOG reduce production expressao -> STRING 
+-- On MULT reduce production expressao -> STRING 
+-- On MENOS reduce production expressao -> STRING 
+-- On MENOR reduce production expressao -> STRING 
+-- On MAIS reduce production expressao -> STRING 
+-- On MAIOR reduce production expressao -> STRING 
+-- On IGUAL reduce production expressao -> STRING 
+-- On FPAR reduce production expressao -> STRING 
+-- On FCOL reduce production expressao -> STRING 
+-- On ELOG reduce production expressao -> STRING 
+-- On DIV reduce production expressao -> STRING 
+-- On DIFER reduce production expressao -> STRING 
+-- On CONCAT reduce production expressao -> STRING 
+-- On ATRIB reduce production expressao -> STRING 
+
+State 51:
+comando_se -> SE . APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On APAR shift to state 52
+
+State 52:
+comando_se -> SE APAR . expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 95
+-- On chamada shift to state 67
+
+State 53:
+expressao -> INT . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> INT 
+-- On PTV reduce production expressao -> INT 
+-- On OULOG reduce production expressao -> INT 
+-- On MULT reduce production expressao -> INT 
+-- On MENOS reduce production expressao -> INT 
+-- On MENOR reduce production expressao -> INT 
+-- On MAIS reduce production expressao -> INT 
+-- On MAIOR reduce production expressao -> INT 
+-- On IGUAL reduce production expressao -> INT 
+-- On FPAR reduce production expressao -> INT 
+-- On FCOL reduce production expressao -> INT 
+-- On ELOG reduce production expressao -> INT 
+-- On DIV reduce production expressao -> INT 
+-- On DIFER reduce production expressao -> INT 
+-- On CONCAT reduce production expressao -> INT 
+-- On ATRIB reduce production expressao -> INT 
+
+State 54:
+chamada -> ID . APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+variavel -> ID . [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On APAR shift to state 55
+-- On VIRG reduce production variavel -> ID 
+-- On PTV reduce production variavel -> ID 
+-- On PTO reduce production variavel -> ID 
+-- On OULOG reduce production variavel -> ID 
+-- On MULT reduce production variavel -> ID 
+-- On MENOS reduce production variavel -> ID 
+-- On MENOR reduce production variavel -> ID 
+-- On MAIS reduce production variavel -> ID 
+-- On MAIOR reduce production variavel -> ID 
+-- On IGUAL reduce production variavel -> ID 
+-- On FPAR reduce production variavel -> ID 
+-- On FCOL reduce production variavel -> ID 
+-- On ELOG reduce production variavel -> ID 
+-- On DIV reduce production variavel -> ID 
+-- On DIFER reduce production variavel -> ID 
+-- On CONCAT reduce production variavel -> ID 
+-- On ATRIB reduce production variavel -> ID 
+-- On ACOL reduce production variavel -> ID 
+
+State 55:
+chamada -> ID APAR . loption(separated_nonempty_list(VIRG,expressao)) FPAR [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On separated_nonempty_list(VIRG,expressao) shift to state 89
+-- On loption(separated_nonempty_list(VIRG,expressao)) shift to state 90
+-- On expressao shift to state 92
+-- On chamada shift to state 67
+-- On FPAR reduce production loption(separated_nonempty_list(VIRG,expressao)) -> 
+
+State 56:
+expressao -> BOOL . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> BOOL 
+-- On PTV reduce production expressao -> BOOL 
+-- On OULOG reduce production expressao -> BOOL 
+-- On MULT reduce production expressao -> BOOL 
+-- On MENOS reduce production expressao -> BOOL 
+-- On MENOR reduce production expressao -> BOOL 
+-- On MAIS reduce production expressao -> BOOL 
+-- On MAIOR reduce production expressao -> BOOL 
+-- On IGUAL reduce production expressao -> BOOL 
+-- On FPAR reduce production expressao -> BOOL 
+-- On FCOL reduce production expressao -> BOOL 
+-- On ELOG reduce production expressao -> BOOL 
+-- On DIV reduce production expressao -> BOOL 
+-- On DIFER reduce production expressao -> BOOL 
+-- On CONCAT reduce production expressao -> BOOL 
+-- On ATRIB reduce production expressao -> BOOL 
+
+State 57:
+expressao -> APAR . expressao FPAR [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 87
+-- On chamada shift to state 67
+
+State 58:
+expressao -> variavel . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+variavel -> variavel . PTO ID [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+variavel -> variavel . ACOL expressao FCOL [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On PTO shift to state 59
+-- On ACOL shift to state 61
+-- On VIRG reduce production expressao -> variavel 
+-- On PTV reduce production expressao -> variavel 
+-- On OULOG reduce production expressao -> variavel 
+-- On MULT reduce production expressao -> variavel 
+-- On MENOS reduce production expressao -> variavel 
+-- On MENOR reduce production expressao -> variavel 
+-- On MAIS reduce production expressao -> variavel 
+-- On MAIOR reduce production expressao -> variavel 
+-- On IGUAL reduce production expressao -> variavel 
+-- On FPAR reduce production expressao -> variavel 
+-- On FCOL reduce production expressao -> variavel 
+-- On ELOG reduce production expressao -> variavel 
+-- On DIV reduce production expressao -> variavel 
+-- On DIFER reduce production expressao -> variavel 
+-- On CONCAT reduce production expressao -> variavel 
+-- On ATRIB reduce production expressao -> variavel 
+
+State 59:
+variavel -> variavel PTO . ID [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On ID shift to state 60
+
+State 60:
+variavel -> variavel PTO ID . [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On VIRG reduce production variavel -> variavel PTO ID 
+-- On PTV reduce production variavel -> variavel PTO ID 
+-- On PTO reduce production variavel -> variavel PTO ID 
+-- On OULOG reduce production variavel -> variavel PTO ID 
+-- On MULT reduce production variavel -> variavel PTO ID 
+-- On MENOS reduce production variavel -> variavel PTO ID 
+-- On MENOR reduce production variavel -> variavel PTO ID 
+-- On MAIS reduce production variavel -> variavel PTO ID 
+-- On MAIOR reduce production variavel -> variavel PTO ID 
+-- On IGUAL reduce production variavel -> variavel PTO ID 
+-- On FPAR reduce production variavel -> variavel PTO ID 
+-- On FCOL reduce production variavel -> variavel PTO ID 
+-- On ELOG reduce production variavel -> variavel PTO ID 
+-- On DIV reduce production variavel -> variavel PTO ID 
+-- On DIFER reduce production variavel -> variavel PTO ID 
+-- On CONCAT reduce production variavel -> variavel PTO ID 
+-- On ATRIB reduce production variavel -> variavel PTO ID 
+-- On ACOL reduce production variavel -> variavel PTO ID 
+
+State 61:
+variavel -> variavel ACOL . expressao FCOL [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 62
+-- On chamada shift to state 67
+
+State 62:
+expressao -> expressao . MAIS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FCOL ELOG DIV DIFER CONCAT ]
+variavel -> variavel ACOL expressao . FCOL [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On FCOL shift to state 86
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+
+State 63:
+expressao -> expressao OULOG . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 64
+-- On chamada shift to state 67
+
+State 64:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao OULOG expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao OULOG expressao 
+-- On PTV reduce production expressao -> expressao OULOG expressao 
+-- On OULOG reduce production expressao -> expressao OULOG expressao 
+-- On FPAR reduce production expressao -> expressao OULOG expressao 
+-- On FCOL reduce production expressao -> expressao OULOG expressao 
+-- On ATRIB reduce production expressao -> expressao OULOG expressao 
+
+State 65:
+expressao -> expressao MULT . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 66
+-- On chamada shift to state 67
+
+State 66:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao MULT expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> expressao MULT expressao 
+-- On PTV reduce production expressao -> expressao MULT expressao 
+-- On OULOG reduce production expressao -> expressao MULT expressao 
+-- On MULT reduce production expressao -> expressao MULT expressao 
+-- On MENOS reduce production expressao -> expressao MULT expressao 
+-- On MENOR reduce production expressao -> expressao MULT expressao 
+-- On MAIS reduce production expressao -> expressao MULT expressao 
+-- On MAIOR reduce production expressao -> expressao MULT expressao 
+-- On IGUAL reduce production expressao -> expressao MULT expressao 
+-- On FPAR reduce production expressao -> expressao MULT expressao 
+-- On FCOL reduce production expressao -> expressao MULT expressao 
+-- On ELOG reduce production expressao -> expressao MULT expressao 
+-- On DIV reduce production expressao -> expressao MULT expressao 
+-- On DIFER reduce production expressao -> expressao MULT expressao 
+-- On CONCAT reduce production expressao -> expressao MULT expressao 
+-- On ATRIB reduce production expressao -> expressao MULT expressao 
+
+State 67:
+expressao -> chamada . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> chamada 
+-- On PTV reduce production expressao -> chamada 
+-- On OULOG reduce production expressao -> chamada 
+-- On MULT reduce production expressao -> chamada 
+-- On MENOS reduce production expressao -> chamada 
+-- On MENOR reduce production expressao -> chamada 
+-- On MAIS reduce production expressao -> chamada 
+-- On MAIOR reduce production expressao -> chamada 
+-- On IGUAL reduce production expressao -> chamada 
+-- On FPAR reduce production expressao -> chamada 
+-- On FCOL reduce production expressao -> chamada 
+-- On ELOG reduce production expressao -> chamada 
+-- On DIV reduce production expressao -> chamada 
+-- On DIFER reduce production expressao -> chamada 
+-- On CONCAT reduce production expressao -> chamada 
+-- On ATRIB reduce production expressao -> chamada 
+
+State 68:
+expressao -> expressao MENOS . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 69
+-- On chamada shift to state 67
+
+State 69:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao MENOS expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On DIV shift to state 70
+-- On VIRG reduce production expressao -> expressao MENOS expressao 
+-- On PTV reduce production expressao -> expressao MENOS expressao 
+-- On OULOG reduce production expressao -> expressao MENOS expressao 
+-- On MENOS reduce production expressao -> expressao MENOS expressao 
+-- On MENOR reduce production expressao -> expressao MENOS expressao 
+-- On MAIS reduce production expressao -> expressao MENOS expressao 
+-- On MAIOR reduce production expressao -> expressao MENOS expressao 
+-- On IGUAL reduce production expressao -> expressao MENOS expressao 
+-- On FPAR reduce production expressao -> expressao MENOS expressao 
+-- On FCOL reduce production expressao -> expressao MENOS expressao 
+-- On ELOG reduce production expressao -> expressao MENOS expressao 
+-- On DIFER reduce production expressao -> expressao MENOS expressao 
+-- On CONCAT reduce production expressao -> expressao MENOS expressao 
+-- On ATRIB reduce production expressao -> expressao MENOS expressao 
+
+State 70:
+expressao -> expressao DIV . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 71
+-- On chamada shift to state 67
+
+State 71:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao DIV expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> expressao DIV expressao 
+-- On PTV reduce production expressao -> expressao DIV expressao 
+-- On OULOG reduce production expressao -> expressao DIV expressao 
+-- On MULT reduce production expressao -> expressao DIV expressao 
+-- On MENOS reduce production expressao -> expressao DIV expressao 
+-- On MENOR reduce production expressao -> expressao DIV expressao 
+-- On MAIS reduce production expressao -> expressao DIV expressao 
+-- On MAIOR reduce production expressao -> expressao DIV expressao 
+-- On IGUAL reduce production expressao -> expressao DIV expressao 
+-- On FPAR reduce production expressao -> expressao DIV expressao 
+-- On FCOL reduce production expressao -> expressao DIV expressao 
+-- On ELOG reduce production expressao -> expressao DIV expressao 
+-- On DIV reduce production expressao -> expressao DIV expressao 
+-- On DIFER reduce production expressao -> expressao DIV expressao 
+-- On CONCAT reduce production expressao -> expressao DIV expressao 
+-- On ATRIB reduce production expressao -> expressao DIV expressao 
+
+State 72:
+expressao -> expressao MENOR . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 73
+-- On chamada shift to state 67
+
+State 73:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao MENOR expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MAIS shift to state 74
+-- On DIV shift to state 70
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao MENOR expressao 
+-- On PTV reduce production expressao -> expressao MENOR expressao 
+-- On OULOG reduce production expressao -> expressao MENOR expressao 
+-- On MENOR reduce production expressao -> expressao MENOR expressao 
+-- On MAIOR reduce production expressao -> expressao MENOR expressao 
+-- On IGUAL reduce production expressao -> expressao MENOR expressao 
+-- On FPAR reduce production expressao -> expressao MENOR expressao 
+-- On FCOL reduce production expressao -> expressao MENOR expressao 
+-- On ELOG reduce production expressao -> expressao MENOR expressao 
+-- On DIFER reduce production expressao -> expressao MENOR expressao 
+-- On ATRIB reduce production expressao -> expressao MENOR expressao 
+
+State 74:
+expressao -> expressao MAIS . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 75
+-- On chamada shift to state 67
+
+State 75:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao MAIS expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On DIV shift to state 70
+-- On VIRG reduce production expressao -> expressao MAIS expressao 
+-- On PTV reduce production expressao -> expressao MAIS expressao 
+-- On OULOG reduce production expressao -> expressao MAIS expressao 
+-- On MENOS reduce production expressao -> expressao MAIS expressao 
+-- On MENOR reduce production expressao -> expressao MAIS expressao 
+-- On MAIS reduce production expressao -> expressao MAIS expressao 
+-- On MAIOR reduce production expressao -> expressao MAIS expressao 
+-- On IGUAL reduce production expressao -> expressao MAIS expressao 
+-- On FPAR reduce production expressao -> expressao MAIS expressao 
+-- On FCOL reduce production expressao -> expressao MAIS expressao 
+-- On ELOG reduce production expressao -> expressao MAIS expressao 
+-- On DIFER reduce production expressao -> expressao MAIS expressao 
+-- On CONCAT reduce production expressao -> expressao MAIS expressao 
+-- On ATRIB reduce production expressao -> expressao MAIS expressao 
+
+State 76:
+expressao -> expressao CONCAT . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 77
+-- On chamada shift to state 67
+
+State 77:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao CONCAT expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MAIS shift to state 74
+-- On DIV shift to state 70
+-- On VIRG reduce production expressao -> expressao CONCAT expressao 
+-- On PTV reduce production expressao -> expressao CONCAT expressao 
+-- On OULOG reduce production expressao -> expressao CONCAT expressao 
+-- On MENOR reduce production expressao -> expressao CONCAT expressao 
+-- On MAIOR reduce production expressao -> expressao CONCAT expressao 
+-- On IGUAL reduce production expressao -> expressao CONCAT expressao 
+-- On FPAR reduce production expressao -> expressao CONCAT expressao 
+-- On FCOL reduce production expressao -> expressao CONCAT expressao 
+-- On ELOG reduce production expressao -> expressao CONCAT expressao 
+-- On DIFER reduce production expressao -> expressao CONCAT expressao 
+-- On CONCAT reduce production expressao -> expressao CONCAT expressao 
+-- On ATRIB reduce production expressao -> expressao CONCAT expressao 
+
+State 78:
+expressao -> expressao MAIOR . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 79
+-- On chamada shift to state 67
+
+State 79:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao MAIOR expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MAIS shift to state 74
+-- On DIV shift to state 70
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao MAIOR expressao 
+-- On PTV reduce production expressao -> expressao MAIOR expressao 
+-- On OULOG reduce production expressao -> expressao MAIOR expressao 
+-- On MENOR reduce production expressao -> expressao MAIOR expressao 
+-- On MAIOR reduce production expressao -> expressao MAIOR expressao 
+-- On IGUAL reduce production expressao -> expressao MAIOR expressao 
+-- On FPAR reduce production expressao -> expressao MAIOR expressao 
+-- On FCOL reduce production expressao -> expressao MAIOR expressao 
+-- On ELOG reduce production expressao -> expressao MAIOR expressao 
+-- On DIFER reduce production expressao -> expressao MAIOR expressao 
+-- On ATRIB reduce production expressao -> expressao MAIOR expressao 
+
+State 80:
+expressao -> expressao IGUAL . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 81
+-- On chamada shift to state 67
+
+State 81:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao IGUAL expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On DIV shift to state 70
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao IGUAL expressao 
+-- On PTV reduce production expressao -> expressao IGUAL expressao 
+-- On OULOG reduce production expressao -> expressao IGUAL expressao 
+-- On IGUAL reduce production expressao -> expressao IGUAL expressao 
+-- On FPAR reduce production expressao -> expressao IGUAL expressao 
+-- On FCOL reduce production expressao -> expressao IGUAL expressao 
+-- On ELOG reduce production expressao -> expressao IGUAL expressao 
+-- On DIFER reduce production expressao -> expressao IGUAL expressao 
+-- On ATRIB reduce production expressao -> expressao IGUAL expressao 
+
+State 82:
+expressao -> expressao ELOG . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 83
+-- On chamada shift to state 67
+
+State 83:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao ELOG expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao ELOG expressao 
+-- On PTV reduce production expressao -> expressao ELOG expressao 
+-- On OULOG reduce production expressao -> expressao ELOG expressao 
+-- On FPAR reduce production expressao -> expressao ELOG expressao 
+-- On FCOL reduce production expressao -> expressao ELOG expressao 
+-- On ELOG reduce production expressao -> expressao ELOG expressao 
+-- On ATRIB reduce production expressao -> expressao ELOG expressao 
+
+State 84:
+expressao -> expressao DIFER . expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 85
+-- On chamada shift to state 67
+
+State 85:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao DIFER expressao . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On DIV shift to state 70
+-- On CONCAT shift to state 76
+-- On VIRG reduce production expressao -> expressao DIFER expressao 
+-- On PTV reduce production expressao -> expressao DIFER expressao 
+-- On OULOG reduce production expressao -> expressao DIFER expressao 
+-- On IGUAL reduce production expressao -> expressao DIFER expressao 
+-- On FPAR reduce production expressao -> expressao DIFER expressao 
+-- On FCOL reduce production expressao -> expressao DIFER expressao 
+-- On ELOG reduce production expressao -> expressao DIFER expressao 
+-- On DIFER reduce production expressao -> expressao DIFER expressao 
+-- On ATRIB reduce production expressao -> expressao DIFER expressao 
+
+State 86:
+variavel -> variavel ACOL expressao FCOL . [ VIRG PTV PTO OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ACOL ]
+-- On VIRG reduce production variavel -> variavel ACOL expressao FCOL 
+-- On PTV reduce production variavel -> variavel ACOL expressao FCOL 
+-- On PTO reduce production variavel -> variavel ACOL expressao FCOL 
+-- On OULOG reduce production variavel -> variavel ACOL expressao FCOL 
+-- On MULT reduce production variavel -> variavel ACOL expressao FCOL 
+-- On MENOS reduce production variavel -> variavel ACOL expressao FCOL 
+-- On MENOR reduce production variavel -> variavel ACOL expressao FCOL 
+-- On MAIS reduce production variavel -> variavel ACOL expressao FCOL 
+-- On MAIOR reduce production variavel -> variavel ACOL expressao FCOL 
+-- On IGUAL reduce production variavel -> variavel ACOL expressao FCOL 
+-- On FPAR reduce production variavel -> variavel ACOL expressao FCOL 
+-- On FCOL reduce production variavel -> variavel ACOL expressao FCOL 
+-- On ELOG reduce production variavel -> variavel ACOL expressao FCOL 
+-- On DIV reduce production variavel -> variavel ACOL expressao FCOL 
+-- On DIFER reduce production variavel -> variavel ACOL expressao FCOL 
+-- On CONCAT reduce production variavel -> variavel ACOL expressao FCOL 
+-- On ATRIB reduce production variavel -> variavel ACOL expressao FCOL 
+-- On ACOL reduce production variavel -> variavel ACOL expressao FCOL 
+
+State 87:
+expressao -> expressao . MAIS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> APAR expressao . FPAR [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On FPAR shift to state 88
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+
+State 88:
+expressao -> APAR expressao FPAR . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production expressao -> APAR expressao FPAR 
+-- On PTV reduce production expressao -> APAR expressao FPAR 
+-- On OULOG reduce production expressao -> APAR expressao FPAR 
+-- On MULT reduce production expressao -> APAR expressao FPAR 
+-- On MENOS reduce production expressao -> APAR expressao FPAR 
+-- On MENOR reduce production expressao -> APAR expressao FPAR 
+-- On MAIS reduce production expressao -> APAR expressao FPAR 
+-- On MAIOR reduce production expressao -> APAR expressao FPAR 
+-- On IGUAL reduce production expressao -> APAR expressao FPAR 
+-- On FPAR reduce production expressao -> APAR expressao FPAR 
+-- On FCOL reduce production expressao -> APAR expressao FPAR 
+-- On ELOG reduce production expressao -> APAR expressao FPAR 
+-- On DIV reduce production expressao -> APAR expressao FPAR 
+-- On DIFER reduce production expressao -> APAR expressao FPAR 
+-- On CONCAT reduce production expressao -> APAR expressao FPAR 
+-- On ATRIB reduce production expressao -> APAR expressao FPAR 
+
+State 89:
+loption(separated_nonempty_list(VIRG,expressao)) -> separated_nonempty_list(VIRG,expressao) . [ FPAR ]
+-- On FPAR reduce production loption(separated_nonempty_list(VIRG,expressao)) -> separated_nonempty_list(VIRG,expressao) 
+
+State 90:
+chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) . FPAR [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On FPAR shift to state 91
+
+State 91:
+chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR . [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR FCOL ELOG DIV DIFER CONCAT ATRIB ]
+-- On VIRG reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On PTV reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On OULOG reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On MULT reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On MENOS reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On MENOR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On MAIS reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On MAIOR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On IGUAL reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On FPAR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On FCOL reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On ELOG reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On DIV reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On DIFER reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On CONCAT reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+-- On ATRIB reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRG,expressao)) FPAR 
+
+State 92:
+expressao -> expressao . MAIS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ VIRG PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+separated_nonempty_list(VIRG,expressao) -> expressao . [ PTV FPAR ]
+separated_nonempty_list(VIRG,expressao) -> expressao . VIRG separated_nonempty_list(VIRG,expressao) [ PTV FPAR ]
+-- On VIRG shift to state 93
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+-- On PTV reduce production separated_nonempty_list(VIRG,expressao) -> expressao 
+-- On FPAR reduce production separated_nonempty_list(VIRG,expressao) -> expressao 
+
+State 93:
+separated_nonempty_list(VIRG,expressao) -> expressao VIRG . separated_nonempty_list(VIRG,expressao) [ PTV FPAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On separated_nonempty_list(VIRG,expressao) shift to state 94
+-- On expressao shift to state 92
+-- On chamada shift to state 67
+
+State 94:
+separated_nonempty_list(VIRG,expressao) -> expressao VIRG separated_nonempty_list(VIRG,expressao) . [ PTV FPAR ]
+-- On PTV reduce production separated_nonempty_list(VIRG,expressao) -> expressao VIRG separated_nonempty_list(VIRG,expressao) 
+-- On FPAR reduce production separated_nonempty_list(VIRG,expressao) -> expressao VIRG separated_nonempty_list(VIRG,expressao) 
+
+State 95:
+comando_se -> SE APAR expressao . FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+expressao -> expressao . MAIS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL FPAR ELOG DIV DIFER CONCAT ]
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On FPAR shift to state 96
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+
+State 96:
+comando_se -> SE APAR expressao FPAR . ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On ENTAO shift to state 97
+
+State 97:
+comando_se -> SE APAR expressao FPAR ENTAO . nonempty_list(comando) option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On nonempty_list(comando) shift to state 108
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 121
+-- On chamada shift to state 123
+
+State 98:
+comando_saida -> SAIDA . separated_nonempty_list(VIRG,expressao) PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On separated_nonempty_list(VIRG,expressao) shift to state 99
+-- On expressao shift to state 92
+-- On chamada shift to state 67
+
+State 99:
+comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On PTV shift to state 100
+
+State 100:
+comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SENAO reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SE reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SAIDA reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On RETORNE reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On INT reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On ID reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On FIM reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On ENTRADA reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On BOOL reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+-- On APAR reduce production comando_saida -> SAIDA separated_nonempty_list(VIRG,expressao) PTV 
+
+State 101:
+comando_retorno -> RETORNE . option(expressao) PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On option(expressao) shift to state 102
+-- On expressao shift to state 104
+-- On chamada shift to state 67
+-- On PTV reduce production option(expressao) -> 
+
+State 102:
+comando_retorno -> RETORNE option(expressao) . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On PTV shift to state 103
+
+State 103:
+comando_retorno -> RETORNE option(expressao) PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On SENAO reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On SE reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On SAIDA reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On RETORNE reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On INT reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On ID reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On FIM reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On ENTRADA reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On BOOL reduce production comando_retorno -> RETORNE option(expressao) PTV 
+-- On APAR reduce production comando_retorno -> RETORNE option(expressao) PTV 
+
+State 104:
+expressao -> expressao . MAIS expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+option(expressao) -> expressao . [ PTV ]
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+-- On PTV reduce production option(expressao) -> expressao 
+
+State 105:
+comando_entrada -> ENTRADA . separated_nonempty_list(VIRG,expressao) PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On separated_nonempty_list(VIRG,expressao) shift to state 106
+-- On expressao shift to state 92
+-- On chamada shift to state 67
+
+State 106:
+comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On PTV shift to state 107
+
+State 107:
+comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SENAO reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SE reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On SAIDA reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On RETORNE reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On INT reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On ID reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On FIM reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On ENTRADA reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On BOOL reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+-- On APAR reduce production comando_entrada -> ENTRADA separated_nonempty_list(VIRG,expressao) PTV 
+
+State 108:
+comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) . option(__anonymous_1) FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On SENAO shift to state 109
+-- On option(__anonymous_1) shift to state 125
+-- On FIM reduce production option(__anonymous_1) -> 
+
+State 109:
+option(__anonymous_1) -> SENAO . nonempty_list(comando) [ FIM ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On nonempty_list(comando) shift to state 110
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 121
+-- On chamada shift to state 123
+
+State 110:
+option(__anonymous_1) -> SENAO nonempty_list(comando) . [ FIM ]
+-- On FIM reduce production option(__anonymous_1) -> SENAO nonempty_list(comando) 
+
+State 111:
+comando_atribuicao -> expressao . ATRIB expressao PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+expressao -> expressao . MAIS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOS expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MULT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIV expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MENOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . IGUAL expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . DIFER expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . MAIOR expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . ELOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . OULOG expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+expressao -> expressao . CONCAT expressao [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+-- On ATRIB shift to state 112
+
+State 112:
+comando_atribuicao -> expressao ATRIB . expressao PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING shift to state 50
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On expressao shift to state 113
+-- On chamada shift to state 67
+
+State 113:
+comando_atribuicao -> expressao ATRIB expressao . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+expressao -> expressao . MAIS expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOS expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MULT expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIV expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MENOR expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . IGUAL expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . DIFER expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . MAIOR expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . ELOG expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . OULOG expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+expressao -> expressao . CONCAT expressao [ PTV OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ]
+-- On PTV shift to state 114
+-- On OULOG shift to state 63
+-- On MULT shift to state 65
+-- On MENOS shift to state 68
+-- On MENOR shift to state 72
+-- On MAIS shift to state 74
+-- On MAIOR shift to state 78
+-- On IGUAL shift to state 80
+-- On ELOG shift to state 82
+-- On DIV shift to state 70
+-- On DIFER shift to state 84
+-- On CONCAT shift to state 76
+
+State 114:
+comando_atribuicao -> expressao ATRIB expressao PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On SENAO reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On SE reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On SAIDA reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On RETORNE reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On INT reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On ID reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On FIM reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On ENTRADA reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On BOOL reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+-- On APAR reduce production comando_atribuicao -> expressao ATRIB expressao PTV 
+
+State 115:
+comando -> comando_se . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_se 
+-- On SENAO reduce production comando -> comando_se 
+-- On SE reduce production comando -> comando_se 
+-- On SAIDA reduce production comando -> comando_se 
+-- On RETORNE reduce production comando -> comando_se 
+-- On INT reduce production comando -> comando_se 
+-- On ID reduce production comando -> comando_se 
+-- On FIM reduce production comando -> comando_se 
+-- On ENTRADA reduce production comando -> comando_se 
+-- On BOOL reduce production comando -> comando_se 
+-- On APAR reduce production comando -> comando_se 
+
+State 116:
+comando -> comando_saida . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_saida 
+-- On SENAO reduce production comando -> comando_saida 
+-- On SE reduce production comando -> comando_saida 
+-- On SAIDA reduce production comando -> comando_saida 
+-- On RETORNE reduce production comando -> comando_saida 
+-- On INT reduce production comando -> comando_saida 
+-- On ID reduce production comando -> comando_saida 
+-- On FIM reduce production comando -> comando_saida 
+-- On ENTRADA reduce production comando -> comando_saida 
+-- On BOOL reduce production comando -> comando_saida 
+-- On APAR reduce production comando -> comando_saida 
+
+State 117:
+comando -> comando_retorno . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_retorno 
+-- On SENAO reduce production comando -> comando_retorno 
+-- On SE reduce production comando -> comando_retorno 
+-- On SAIDA reduce production comando -> comando_retorno 
+-- On RETORNE reduce production comando -> comando_retorno 
+-- On INT reduce production comando -> comando_retorno 
+-- On ID reduce production comando -> comando_retorno 
+-- On FIM reduce production comando -> comando_retorno 
+-- On ENTRADA reduce production comando -> comando_retorno 
+-- On BOOL reduce production comando -> comando_retorno 
+-- On APAR reduce production comando -> comando_retorno 
+
+State 118:
+comando -> comando_entrada . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_entrada 
+-- On SENAO reduce production comando -> comando_entrada 
+-- On SE reduce production comando -> comando_entrada 
+-- On SAIDA reduce production comando -> comando_entrada 
+-- On RETORNE reduce production comando -> comando_entrada 
+-- On INT reduce production comando -> comando_entrada 
+-- On ID reduce production comando -> comando_entrada 
+-- On FIM reduce production comando -> comando_entrada 
+-- On ENTRADA reduce production comando -> comando_entrada 
+-- On BOOL reduce production comando -> comando_entrada 
+-- On APAR reduce production comando -> comando_entrada 
+
+State 119:
+comando -> comando_chamada . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_chamada 
+-- On SENAO reduce production comando -> comando_chamada 
+-- On SE reduce production comando -> comando_chamada 
+-- On SAIDA reduce production comando -> comando_chamada 
+-- On RETORNE reduce production comando -> comando_chamada 
+-- On INT reduce production comando -> comando_chamada 
+-- On ID reduce production comando -> comando_chamada 
+-- On FIM reduce production comando -> comando_chamada 
+-- On ENTRADA reduce production comando -> comando_chamada 
+-- On BOOL reduce production comando -> comando_chamada 
+-- On APAR reduce production comando -> comando_chamada 
+
+State 120:
+comando -> comando_atribuicao . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando -> comando_atribuicao 
+-- On SENAO reduce production comando -> comando_atribuicao 
+-- On SE reduce production comando -> comando_atribuicao 
+-- On SAIDA reduce production comando -> comando_atribuicao 
+-- On RETORNE reduce production comando -> comando_atribuicao 
+-- On INT reduce production comando -> comando_atribuicao 
+-- On ID reduce production comando -> comando_atribuicao 
+-- On FIM reduce production comando -> comando_atribuicao 
+-- On ENTRADA reduce production comando -> comando_atribuicao 
+-- On BOOL reduce production comando -> comando_atribuicao 
+-- On APAR reduce production comando -> comando_atribuicao 
+
+State 121:
+nonempty_list(comando) -> comando . [ SENAO FIM ]
+nonempty_list(comando) -> comando . nonempty_list(comando) [ SENAO FIM ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On nonempty_list(comando) shift to state 122
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 121
+-- On chamada shift to state 123
+-- On SENAO reduce production nonempty_list(comando) -> comando 
+-- On FIM reduce production nonempty_list(comando) -> comando 
+
+State 122:
+nonempty_list(comando) -> comando nonempty_list(comando) . [ SENAO FIM ]
+-- On SENAO reduce production nonempty_list(comando) -> comando nonempty_list(comando) 
+-- On FIM reduce production nonempty_list(comando) -> comando nonempty_list(comando) 
+
+State 123:
+comando_chamada -> chamada . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+expressao -> chamada . [ OULOG MULT MENOS MENOR MAIS MAIOR IGUAL ELOG DIV DIFER CONCAT ATRIB ]
+-- On PTV shift to state 124
+-- On OULOG reduce production expressao -> chamada 
+-- On MULT reduce production expressao -> chamada 
+-- On MENOS reduce production expressao -> chamada 
+-- On MENOR reduce production expressao -> chamada 
+-- On MAIS reduce production expressao -> chamada 
+-- On MAIOR reduce production expressao -> chamada 
+-- On IGUAL reduce production expressao -> chamada 
+-- On ELOG reduce production expressao -> chamada 
+-- On DIV reduce production expressao -> chamada 
+-- On DIFER reduce production expressao -> chamada 
+-- On CONCAT reduce production expressao -> chamada 
+-- On ATRIB reduce production expressao -> chamada 
+
+State 124:
+comando_chamada -> chamada PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_chamada -> chamada PTV 
+-- On SENAO reduce production comando_chamada -> chamada PTV 
+-- On SE reduce production comando_chamada -> chamada PTV 
+-- On SAIDA reduce production comando_chamada -> chamada PTV 
+-- On RETORNE reduce production comando_chamada -> chamada PTV 
+-- On INT reduce production comando_chamada -> chamada PTV 
+-- On ID reduce production comando_chamada -> chamada PTV 
+-- On FIM reduce production comando_chamada -> chamada PTV 
+-- On ENTRADA reduce production comando_chamada -> chamada PTV 
+-- On BOOL reduce production comando_chamada -> chamada PTV 
+-- On APAR reduce production comando_chamada -> chamada PTV 
+
+State 125:
+comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) . FIM SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On FIM shift to state 126
+
+State 126:
+comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM . SE PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On SE shift to state 127
+
+State 127:
+comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE . PTV [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On PTV shift to state 128
+
+State 128:
+comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV . [ STRING SENAO SE SAIDA RETORNE INT ID FIM ENTRADA BOOL APAR ]
+-- On STRING reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On SENAO reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On SE reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On SAIDA reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On RETORNE reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On INT reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On ID reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On FIM reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On ENTRADA reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On BOOL reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+-- On APAR reduce production comando_se -> SE APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM SE PTV 
+
+State 129:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) . FIM PTV [ INICIO FUNCAO ]
+-- On FIM shift to state 130
+
+State 130:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM . PTV [ INICIO FUNCAO ]
+-- On PTV shift to state 131
+
+State 131:
+declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV . [ INICIO FUNCAO ]
+-- On INICIO reduce production declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV 
+-- On FUNCAO reduce production declaracao_de_funcao -> FUNCAO ID APAR loption(separated_nonempty_list(VIRG,parametro)) FPAR DPTOS tipo list(declaracao_de_variavel) INICIO list(comando) FIM PTV 
+
+State 132:
+list(comando) -> comando . list(comando) [ FIM ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On list(comando) shift to state 133
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 132
+-- On chamada shift to state 123
+-- On FIM reduce production list(comando) -> 
+
+State 133:
+list(comando) -> comando list(comando) . [ FIM ]
+-- On FIM reduce production list(comando) -> comando list(comando) 
+
+State 134:
+list(declaracao_de_variavel) -> declaracao_de_variavel . list(declaracao_de_variavel) [ INICIO FUNCAO ]
+-- On ID shift to state 2
+-- On separated_nonempty_list(VIRG,ID) shift to state 5
+-- On list(declaracao_de_variavel) shift to state 135
+-- On declaracao_de_variavel shift to state 134
+-- On INICIO reduce production list(declaracao_de_variavel) -> 
+-- On FUNCAO reduce production list(declaracao_de_variavel) -> 
+
+State 135:
+list(declaracao_de_variavel) -> declaracao_de_variavel list(declaracao_de_variavel) . [ INICIO FUNCAO ]
+-- On INICIO reduce production list(declaracao_de_variavel) -> declaracao_de_variavel list(declaracao_de_variavel) 
+-- On FUNCAO reduce production list(declaracao_de_variavel) -> declaracao_de_variavel list(declaracao_de_variavel) 
+
+State 136:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) . INICIO list(comando) FIM PTV EOF [ # ]
+-- On INICIO shift to state 137
+
+State 137:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO . list(comando) FIM PTV EOF [ # ]
+-- On STRING shift to state 50
+-- On SE shift to state 51
+-- On SAIDA shift to state 98
+-- On RETORNE shift to state 101
+-- On INT shift to state 53
+-- On ID shift to state 54
+-- On ENTRADA shift to state 105
+-- On BOOL shift to state 56
+-- On APAR shift to state 57
+-- On variavel shift to state 58
+-- On list(comando) shift to state 138
+-- On expressao shift to state 111
+-- On comando_se shift to state 115
+-- On comando_saida shift to state 116
+-- On comando_retorno shift to state 117
+-- On comando_entrada shift to state 118
+-- On comando_chamada shift to state 119
+-- On comando_atribuicao shift to state 120
+-- On comando shift to state 132
+-- On chamada shift to state 123
+-- On FIM reduce production list(comando) -> 
+
+State 138:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) . FIM PTV EOF [ # ]
+-- On FIM shift to state 139
+
+State 139:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) FIM . PTV EOF [ # ]
+-- On PTV shift to state 140
+
+State 140:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) FIM PTV . EOF [ # ]
+-- On EOF shift to state 141
+
+State 141:
+programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) FIM PTV EOF . [ # ]
+-- On # reduce production programa -> PROGRAMA list(declaracao_de_variavel) list(declaracao_de_funcao) INICIO list(comando) FIM PTV EOF 
+
+State 142:
+list(declaracao_de_funcao) -> declaracao_de_funcao . list(declaracao_de_funcao) [ INICIO ]
+-- On FUNCAO shift to state 34
+-- On list(declaracao_de_funcao) shift to state 143
+-- On declaracao_de_funcao shift to state 142
+-- On INICIO reduce production list(declaracao_de_funcao) -> 
+
+State 143:
+list(declaracao_de_funcao) -> declaracao_de_funcao list(declaracao_de_funcao) . [ INICIO ]
+-- On INICIO reduce production list(declaracao_de_funcao) -> declaracao_de_funcao list(declaracao_de_funcao) 
+
+State 144:
+programa' -> programa . [ # ]
+-- On # accept programa
+

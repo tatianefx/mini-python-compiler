@@ -1,0 +1,6 @@
+Para compilar:
+  ocamlbuild -use-ocamlfind -use-menhir -menhir "menhir --table" -package menhirLib sintaticoTest.byte
+
+Para usar:
+  rlwrap ocaml
+  parse_arq "exemplos/ex1.tip";;
