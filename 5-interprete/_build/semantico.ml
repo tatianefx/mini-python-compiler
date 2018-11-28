@@ -3,9 +3,9 @@ module A = Ast
 module S = Sast
 module T = Tast
 
-let rec posicao exp = 
+let rec posicao exp =
   let open S in
-  match exp with 
+  match exp with
   | EXPVAR       (_,pos)      -> pos
   | EXPINT       (_,pos)      -> pos
   | EXPSTRING    (_,pos)      -> pos
@@ -14,7 +14,7 @@ let rec posicao exp =
   | EXPOPB    ((_,pos),_,_) -> pos
   | EXPOPU    ((_,pos),_)   -> pos
   | EXPCALL     ((_,pos),_)   -> pos
-  
+
 
 type classe_op = Aritmetico | Relacional | Logico
 
@@ -44,7 +44,7 @@ let msg_erro_pos pos msg =
 
 (*  argumento nome é do tipo S.tipo  *)
 let msg_erro nome msg =
-  let pos = snd nome in 
+  let pos = snd nome in
   msg_erro_pos pos msg
 
 let nome_tipo t =
@@ -73,7 +73,7 @@ let rec infere_exp amb exp =
         (try begin
             (match (Amb.busca amb nome) with
             | Amb.EntVar tipo -> (T.EXPVAR (nome, tipo), tipo)
-            | Amb.EntFun _    -> 
+            | Amb.EntFun _    ->
                 let msg = "Nome de funcao usado como nome de variavel: "^nome in
                   failwith (msg_erro variavel msg))
         end with Not_found ->
@@ -82,7 +82,7 @@ let rec infere_exp amb exp =
   | S.EXPOPB (op, exp_esq, exp_dir) ->
       let (esq, tesq) = infere_exp amb exp_esq
       and (dir, tdir) = infere_exp amb exp_dir in
-      let verifica_aritmetico () = 
+      let verifica_aritmetico () =
         (match tesq with
         | A.INTEIRO
         | A.REAL ->
@@ -100,7 +100,7 @@ let rec infere_exp amb exp =
         | A.INTEIRO
         | A.STRING
         | A.BOOLEAN
-        | A.REAL -> 
+        | A.REAL ->
             (let _ = mesmo_tipo (snd op)
                     "Operando esquerdo do tipo %s, mas o tipo do direito eh %s"
                     tesq tdir
@@ -110,7 +110,7 @@ let rec infere_exp amb exp =
                       (nome_tipo demais)^
                       " nao eh valido em um operador relacional" in
               failwith (msg_erro op msg)))
-      and verifica_logico () = 
+      and verifica_logico () =
         (match tesq with
         | A.BOOLEAN ->
             let _ = mesmo_tipo (snd op)
@@ -124,7 +124,7 @@ let rec infere_exp amb exp =
               failwith (msg_erro op msg))
       in
       let oper = fst op in
-      let tinf = 
+      let tinf =
          (match (classifica oper) with
         | Aritmetico -> verifica_aritmetico ()
         | Relacional -> verifica_relacional ()
@@ -132,7 +132,7 @@ let rec infere_exp amb exp =
       in (T.EXPOPB ((oper, tinf), (esq, tesq), (dir, tdir)), tinf)
   | S.EXPOPU (op, exp) ->
     let (exp, texp) = infere_exp amb exp in
-    let verifica_not () = 
+    let verifica_not () =
       match texp with
       | A.BOOLEAN ->
           let _ = mesmo_tipo (snd op)
@@ -142,9 +142,9 @@ let rec infere_exp amb exp =
       | demais     ->
           let msg = "O tipo "^
                       (nome_tipo demais)^
-                      " nINTEIROao eh valido para o operador not" in
+                      " nao eh valido para o operador not" in
               failwith (msg_erro op msg)
-    and verifica_negativo () = 
+    and verifica_negativo () =
       match texp with
       | A.REAL ->
           let _ = mesmo_tipo (snd op)
@@ -177,7 +177,7 @@ let rec infere_exp amb exp =
       match (ags, ps, fs) with
       | (a::ags), (p::ps), (f::fs) ->
           let _ = mesmo_tipo (posicao a)
-                  "O parametro eh do tipo %s mas deveria ser do tipo %s" 
+                  "O parametro eh do tipo %s mas deveria ser do tipo %s"
                   p f
           in verifica_parametros ags ps fs
       | [], [], [] -> ()
@@ -200,104 +200,104 @@ let rec infere_exp amb exp =
       with Not_found ->
         let msg = "Nao existe a funcao de nome " ^ id in
         failwith (msg_erro nome msg)
-          
+
 let rec verifica_cmd amb tiporet cmd =
   let open A in
     match cmd with
     | CHAMADADEFUNCAO  exp -> let (exp,tinf) = infere_exp amb exp in CHAMADADEFUNCAO exp
     | PRINT exp -> let expt = infere_exp amb exp in PRINT (fst expt)
-    | WHILELOOP (cond, cmds) -> 
+    | WHILELOOP (cond, cmds) ->
         let (expCond, expT ) = infere_exp amb cond in
-        let comandos_tipados = 
-          (match expT with 
+        let comandos_tipados =
+          (match expT with
             | A.BOOLEAN -> List.map (verifica_cmd amb tiporet) cmds
             | _ -> let msg = "Condicao deve ser tipo Bool" in
                         failwith (msg_erro_pos (posicao cond) msg))
         in WHILELOOP (expCond,comandos_tipados)
-    | LEIAI exp -> 
-        (match exp with 
-          S.EXPVAR (id,pos) -> 
+    | LEIAI exp ->
+        (match exp with
+          S.EXPVAR (id,pos) ->
            (try
-              begin 
+              begin
                 (match (Amb.busca amb id) with
                     Amb.EntVar tipo ->
-                      let expt = infere_exp amb exp in  
+                      let expt = infere_exp amb exp in
                       let _ = mesmo_tipo pos
                         "inputi com tipos diferentes: %s = %s"
-                        tipo (snd expt) in 
+                        tipo (snd expt) in
                         LEIAI (fst expt)
                   | Amb.EntFun _ ->
                       let msg = "nome de funcao usado como nome de variavel: " ^ id in
                       failwith (msg_erro_pos pos msg) )
-              end 
-            with Not_found -> 
+              end
+            with Not_found ->
               let _ = Amb.insere_local amb id A.INTEIRO in
-              let expt = infere_exp amb exp in  
+              let expt = infere_exp amb exp in
               LEIAI (fst expt) )
           | _ -> failwith "Falha Inputi"
         )
-    | LEIAF exp -> 
-        (match exp with 
-          S.EXPVAR (id,pos) -> 
+    | LEIAF exp ->
+        (match exp with
+          S.EXPVAR (id,pos) ->
            (try
-              begin 
+              begin
                 (match (Amb.busca amb id) with
                     Amb.EntVar tipo ->
-                      let expt = infere_exp amb exp in  
+                      let expt = infere_exp amb exp in
                       let _ = mesmo_tipo pos
                         "Inputf com tipos diferentes: %s = %s"
-                        tipo (snd expt) in 
+                        tipo (snd expt) in
                         LEIAF (fst expt)
                   | Amb.EntFun _ ->
                       let msg = "nome de funcao usado como nome de variavel: " ^ id in
                       failwith (msg_erro_pos pos msg) )
-              end 
-            with Not_found -> 
+              end
+            with Not_found ->
               let _ = Amb.insere_local amb id A.REAL in
-              let expt = infere_exp amb exp in  
+              let expt = infere_exp amb exp in
               LEIAF (fst expt) )
-          | _ -> failwith "Falha Inputf"  
+          | _ -> failwith "Falha Inputf"
         )
-    | LEIAS exp -> 
-        (match exp with 
-          S.EXPVAR (id,pos) -> 
+    | LEIAS exp ->
+        (match exp with
+          S.EXPVAR (id,pos) ->
            (try
-              begin 
+              begin
                 (match (Amb.busca amb id) with
                     Amb.EntVar tipo ->
-                      let expt = infere_exp amb exp in  
+                      let expt = infere_exp amb exp in
                       let _ = mesmo_tipo pos
                         "Inputs com tipos diferentes: %s = %s"
-                        tipo (snd expt) in 
+                        tipo (snd expt) in
                         LEIAS (fst expt)
                   | Amb.EntFun _ ->
                       let msg = "nome de funcao usado como nome de variavel: " ^ id in
                       failwith (msg_erro_pos pos msg) )
-              end 
-            with Not_found -> 
+              end
+            with Not_found ->
               let _ = Amb.insere_local amb id A.STRING in
-              let expt = infere_exp amb exp in  
+              let expt = infere_exp amb exp in
               LEIAS (fst expt) )
-          | _ -> failwith "Falha Inputs"  
+          | _ -> failwith "Falha Inputs"
         )
     | ATRIBUICAO (elem, exp) ->
-        let (var1, tdir) = infere_exp amb exp in       
-        ( match elem with 
-          S.EXPVAR (id,pos) -> 
+        let (var1, tdir) = infere_exp amb exp in
+        ( match elem with
+          S.EXPVAR (id,pos) ->
            (try
-              begin 
+              begin
                 (match (Amb.busca amb id) with
-                    Amb.EntVar tipo -> 
+                    Amb.EntVar tipo ->
                       let _ = mesmo_tipo pos
                         "Atribuicao com tipos diferentes: %s = %s"
-                        tipo tdir in 
+                        tipo tdir in
                         ATRIBUICAO (T.EXPVAR (id, tipo), var1)
                   | Amb.EntFun _ ->
                       let msg = "nome de funcao usado como nome de variavel: " ^ id in
                       failwith (msg_erro_pos pos msg) )
-              end 
-            with Not_found -> 
-              let _ = Amb.insere_local amb id tdir in 
+              end
+            with Not_found ->
+              let _ = Amb.insere_local amb id tdir in
               ATRIBUICAO (T.EXPVAR (id, tdir), var1))
           | _ -> failwith "Falha CmdAtrib"
         )
@@ -386,7 +386,7 @@ let insere_declaracao_fun amb dec =
       Amb.insere_fun amb nome formais fn_tiporet
     | ACMD _ -> failwith "Instrucao invalida"
 
-let fn_predefs = 
+let fn_predefs =
   let open A in [
     ("inputi", [("x", INTEIRO  )], NONE);
     ("inputs", [("x", STRING  )], NONE);
@@ -399,11 +399,10 @@ let semantico ast =
   let amb_global = Amb.novo_amb [] in
   let _ = declara_predefinidas amb_global in
   let A.Programa instr = ast in
-  let decs_funs = List.filter(fun x -> 
+  let decs_funs = List.filter(fun x ->
     (match x with
     | A.Funcao _ -> true
     | _          -> false)) instr in
     let _ = List.iter (insere_declaracao_fun amb_global) decs_funs in
       let decs_funs = List.map (verifica_fun amb_global) decs_funs in
       (A.Programa decs_funs, amb_global)
-
