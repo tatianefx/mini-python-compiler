@@ -9,7 +9,7 @@ let obtem_nome_tipo_var exp = let open T in
   match exp with
     | EXPVAR (nome,tipo) -> (nome,tipo)
     | _                  -> failwith "obtem_nome_tipo_var1: nao eh variavel"
-    
+
 let pega_int exp =
   match exp with
   |  T.EXPINT (i,_) -> i
@@ -29,7 +29,7 @@ let pega_bool exp =
   |  T.EXPBOOL (b,_) -> b
   | _ -> failwith "pega_bool: nao eh booleano"
 
-type classe_op = Aritmetico | Relacional | Logico 
+type classe_op = Aritmetico | Relacional | Logico
 
 let classifica op =
   let open A in
@@ -66,7 +66,7 @@ let rec interpreta_exp amb exp =
             | None       -> failwith "variável nao inicializada: "
           )
         |  _ -> failwith "interpreta_exp: expvar"
-      )  
+      )
   | EXPOPB ((op,top), (esq, tesq), (dir,tdir)) ->
     let  vesq = interpreta_exp amb esq
     and vdir = interpreta_exp amb dir in
@@ -93,7 +93,7 @@ let rec interpreta_exp amb exp =
               | MENORIGUALQ -> EXPBOOL (pega_int vesq <= pega_int vdir, top)
               | MENORQ      -> EXPBOOL (pega_int vesq <  pega_int vdir, top)
               | MAIORQ      -> EXPBOOL (pega_int vesq >  pega_int vdir, top)
-              | EHIGUAL      -> EXPBOOL (pega_int vesq == pega_int vdir, top)
+              | EHIGUAL      -> EXPBOOL (pega_int vesq = pega_int vdir, top)
               | EHDIFERENTE      -> EXPBOOL (pega_int vesq != pega_int vdir, top)
               | _          -> failwith "interpreta_relacional"
             )
@@ -103,9 +103,9 @@ let rec interpreta_exp amb exp =
               | MENORIGUALQ -> EXPBOOL (pega_str vesq <= pega_str vdir, top)
               | MENORQ      -> EXPBOOL (pega_str vesq <  pega_str vdir, top)
               | MAIORQ      -> EXPBOOL (pega_str vesq >  pega_str vdir, top)
-              | EHIGUAL      -> EXPBOOL (pega_str vesq == pega_str vdir, top)
-              | EHDIFERENTE      -> EXPBOOL (pega_str vesq != pega_str vdir, top)
-              | _          -> failwith "interpreta_relacional"
+              | EHIGUAL     -> EXPBOOL (pega_str vesq = pega_str vdir, top)
+              | EHDIFERENTE -> EXPBOOL (pega_str vesq != pega_str vdir, top)
+              | _           -> failwith "interpreta_relacional"
             )
           | BOOLEAN ->
             (match op with
@@ -113,9 +113,9 @@ let rec interpreta_exp amb exp =
               | MENORIGUALQ -> EXPBOOL (pega_bool vesq <= pega_bool vdir, top)
               | MENORQ      -> EXPBOOL (pega_bool vesq <  pega_bool vdir, top)
               | MAIORQ      -> EXPBOOL (pega_bool vesq >  pega_bool vdir, top)
-              | EHIGUAL      -> EXPBOOL (pega_bool vesq == pega_bool vdir, top)
-              | EHDIFERENTE      -> EXPBOOL (pega_bool vesq != pega_bool vdir, top)
-              | _          -> failwith "interpreta_relacional"
+              | EHIGUAL     -> EXPBOOL (pega_bool vesq = pega_bool vdir, top)
+              | EHDIFERENTE -> EXPBOOL (pega_bool vesq != pega_bool vdir, top)
+              | _           -> failwith "interpreta_relacional"
             )
           | REAL ->
             (match op with
@@ -123,9 +123,9 @@ let rec interpreta_exp amb exp =
               | MENORIGUALQ -> EXPBOOL (pega_float vesq == pega_float vdir, top)
               | MENORQ      -> EXPBOOL (pega_float vesq <  pega_float vdir, top)
               | MAIORQ      -> EXPBOOL (pega_float vesq >  pega_float vdir, top)
-              | EHIGUAL      -> EXPBOOL (pega_float vesq == pega_float vdir, top)
-              | EHDIFERENTE      -> EXPBOOL (pega_float vesq != pega_float vdir, top)
-              | _          -> failwith "interpreta_relacional"
+              | EHIGUAL     -> EXPBOOL (pega_float vesq = pega_float vdir, top)
+              | EHDIFERENTE -> EXPBOOL (pega_float vesq != pega_float vdir, top)
+              | _           -> failwith "interpreta_relacional"
             )
           | _ ->  failwith "interpreta_relacional"
         )
@@ -140,7 +140,7 @@ let rec interpreta_exp amb exp =
          )
        | _ ->  failwith "interpreta_logico"
       )
-    
+
     in
     let valor = (match (classifica op) with
           Aritmetico -> interpreta_aritmetico ()
@@ -152,11 +152,11 @@ let rec interpreta_exp amb exp =
 
   | EXPOPU ((op, top), (exp, texp)) ->
       let vexp = interpreta_exp amb exp in
-      let interpreta_not () = 
+      let interpreta_not () =
        (match texp with
         | A.BOOLEAN  -> EXPBOOL (not (pega_bool vexp), top)
         | _          -> failwith "Operador unario indefinido")
-      and interpreta_negativo () = 
+      and interpreta_negativo () =
        (match texp with
         | A.INTEIRO   -> EXPINT   (-1   *  pega_int   vexp, top)
         | A.REAL -> EXPFLOAT (-1.0 *. pega_float vexp, top)
@@ -208,17 +208,17 @@ and interpreta_cmd amb cmd =
   | CONDICAOElifElse comandos ->
         List.iter (interpreta_cmd amb ) comandos
   | ATRIBUICAO (elem, exp) ->
-      let resp = interpreta_exp amb exp in       
+      let resp = interpreta_exp amb exp in
         (match elem with
           | T.EXPVAR (id,tipo) ->
            (try
-              begin 
+              begin
                 match (Amb.busca amb id) with
                   | Amb.EntVar (t, _) -> Amb.atualiza_var amb id tipo (Some resp)
                   | Amb.EntFun _      -> failwith "falha na atribuicao"
-              end 
-            with Not_found -> 
-              let _ = Amb.insere_local amb id tipo None in 
+              end
+            with Not_found ->
+              let _ = Amb.insere_local amb id tipo None in
               Amb.atualiza_var amb id tipo (Some resp))
           | _ -> failwith "Falha CmdAtrib"
         )
@@ -229,18 +229,18 @@ and interpreta_cmd amb cmd =
     (* Obtem os nomes e os tipos de cada um dos argumentos *)
     let nt = obtem_nome_tipo_var exp in
     let leia_var (nome,tipo) =
-     let _ = 
+     let _ =
        (try
-          begin 
+          begin
             match (Amb.busca amb nome) with
               | Amb.EntVar (_,_) -> ()
               | Amb.EntFun _     -> failwith "falha no input"
-          end 
-        with Not_found -> 
+          end
+        with Not_found ->
           let _ = Amb.insere_local amb nome tipo None in ()
         )
       in
-      let valor = 
+      let valor =
        (match tipo with
           | INTEIRO  -> T.EXPINT  (read_int   ()   , tipo)
           | STRING   -> T.EXPSTRING   (read_line  ()   , tipo)
@@ -259,20 +259,20 @@ and interpreta_cmd amb cmd =
          in print_string " "
         | _ -> failwith "Fail print"
       )
-  | WHILELOOP (cond, cmds) -> 
-        let rec laco cond cmds = 
+  | WHILELOOP (cond, cmds) ->
+        let rec laco cond cmds =
           let condResp = interpreta_exp amb cond in
                 (match condResp with
                   | EXPBOOL (true,_) ->
                       (* Interpreta cada comando do bloco 'então' *)
-                      let _ = List.iter (interpreta_cmd amb) cmds in 
+                      let _ = List.iter (interpreta_cmd amb) cmds in
                         laco cond cmds
                   | _ -> ())
         in laco cond cmds
   | FORLOOP (idt, int_de ,int_ate, bloco) ->
     let (elem1,tipo) = obtem_nome_tipo_var idt in
     let rec executa_para amb int_de int_ate bloco elem1 tipo =
-           if (int_de) <= (int_ate) 
+           if (int_de) <= (int_ate)
            then begin
                    (*Executa o bloco de código: *)
                    List.iter (interpreta_cmd amb) bloco;
@@ -281,7 +281,7 @@ and interpreta_cmd amb cmd =
                    (*Chamada recursiva:*)
                    executa_para amb (int_de + 1) int_ate bloco elem1 tipo;
                 end in
-    executa_para amb (pega_int int_de) (pega_int int_ate) bloco elem1 tipo 
+    executa_para amb (pega_int int_de) (pega_int int_ate) bloco elem1 tipo
 
 and interpreta_fun amb fn_formais fn_corpo =
   let open A in
@@ -312,7 +312,7 @@ let fn_predefs = let open A in [
     ("inputi", [("x", INTEIRO  )], NONE, []);
     ("inputf", [("x", REAL     )], NONE, []);
     ("inputs", [("x", STRING   )], NONE, []);
-    
+
 ]
 
 (* insere as funções pré definidas no ambiente global *)
@@ -324,7 +324,7 @@ let interprete ast =
   let amb_global = Amb.novo_amb [] in
   let _ = declara_predefinidas amb_global in
   let A.Programa instr = ast in
-    let decs_funs = List.filter (fun x -> 
+    let decs_funs = List.filter (fun x ->
     (match x with
     | A.Funcao _ -> true
     |             _ -> false)) instr in
@@ -336,5 +336,3 @@ let interprete ast =
               let _        = interpreta_fun amb_global vformais corpo in ()
             | _ -> failwith "variavel declarada como 'main'")
        end with Not_found -> failwith "Funcao main nao declarada ")
-      
-

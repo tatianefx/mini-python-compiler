@@ -51,16 +51,16 @@ ocamlfind ocamldep -package menhirLib -modules interprete.ml > interprete.ml.dep
 ocamlfind ocamldep -package menhirLib -modules ambInterp.mli > ambInterp.mli.depends # cached
 # Target: ambInterp.cmi, tags: { package(menhirLib), byte, compile, extension:mli, file:ambInterp.mli, interf, ocaml, quiet }
 ocamlfind ocamlc -c -package menhirLib -o ambInterp.cmi ambInterp.mli # cached
+# Target: interprete.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:interprete.cmo, file:interprete.ml, implem, ocaml, quiet }
+ocamlfind ocamlc -c -package menhirLib -o interprete.cmo interprete.ml # cached
 # Target: semantico.ml.depends, tags: { package(menhirLib), extension:ml, file:semantico.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -package menhirLib -modules semantico.ml > semantico.ml.depends # cached
+# Target: semantico.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:semantico.cmo, file:semantico.ml, implem, ocaml, quiet }
+ocamlfind ocamlc -c -package menhirLib -o semantico.cmo semantico.ml # cached
 # Target: sintatico.ml.depends, tags: { package(menhirLib), extension:ml, file:sintatico.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -package menhirLib -modules sintatico.ml > sintatico.ml.depends # cached
-# Target: interprete.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:interprete.cmo, file:interprete.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o interprete.cmo interprete.ml
-# Target: semantico.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:semantico.cmo, file:semantico.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o semantico.cmo semantico.ml
 # Target: sintatico.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:sintatico.cmo, file:sintatico.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o sintatico.cmo sintatico.ml
+ocamlfind ocamlc -c -package menhirLib -o sintatico.cmo sintatico.ml # cached
 # Target: ambInterp.ml.depends, tags: { package(menhirLib), extension:ml, file:ambInterp.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -package menhirLib -modules ambInterp.ml > ambInterp.ml.depends # cached
 # Target: tabsimb.mli.depends, tags: { package(menhirLib), extension:mli, file:tabsimb.mli, ocaml, ocamldep, quiet }
@@ -68,15 +68,15 @@ ocamlfind ocamldep -package menhirLib -modules tabsimb.mli > tabsimb.mli.depends
 # Target: tabsimb.cmi, tags: { package(menhirLib), byte, compile, extension:mli, file:tabsimb.mli, interf, ocaml, quiet }
 ocamlfind ocamlc -c -package menhirLib -o tabsimb.cmi tabsimb.mli # cached
 # Target: ambInterp.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:ambInterp.cmo, file:ambInterp.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o ambInterp.cmo ambInterp.ml
+ocamlfind ocamlc -c -package menhirLib -o ambInterp.cmo ambInterp.ml # cached
 # Target: tabsimb.ml.depends, tags: { package(menhirLib), extension:ml, file:tabsimb.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -package menhirLib -modules tabsimb.ml > tabsimb.ml.depends # cached
 # Target: tabsimb.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:tabsimb.cmo, file:tabsimb.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o tabsimb.cmo tabsimb.ml
+ocamlfind ocamlc -c -package menhirLib -o tabsimb.cmo tabsimb.ml # cached
 # Target: ambiente.ml.depends, tags: { package(menhirLib), extension:ml, file:ambiente.ml, ocaml, ocamldep, quiet }
 ocamlfind ocamldep -package menhirLib -modules ambiente.ml > ambiente.ml.depends # cached
 # Target: ambiente.cmo, tags: { package(menhirLib), byte, compile, extension:cmo, extension:ml, file:ambiente.cmo, file:ambiente.ml, implem, ocaml, quiet }
-ocamlfind ocamlc -c -package menhirLib -o ambiente.cmo ambiente.ml
+ocamlfind ocamlc -c -package menhirLib -o ambiente.cmo ambiente.ml # cached
 # Target: interpreteTeste.byte, tags: { package(menhirLib), byte, dont_link_with, extension:byte, file:interpreteTeste.byte, link, ocaml, program, quiet }
-ocamlfind ocamlc -linkpkg -package menhirLib ast.cmo tabsimb.cmo tast.cmo ambInterp.cmo sast.cmo interprete.cmo sintatico.cmo lexico.cmo pre_processador.cmo ambiente.cmo semantico.cmo interpreteTeste.cmo -o interpreteTeste.byte
+ocamlfind ocamlc -linkpkg -package menhirLib ast.cmo tabsimb.cmo tast.cmo ambInterp.cmo sast.cmo interprete.cmo sintatico.cmo lexico.cmo pre_processador.cmo ambiente.cmo semantico.cmo interpreteTeste.cmo -o interpreteTeste.byte # cached
 # Compilation successful.

@@ -1,4 +1,4 @@
-def main() -> int:
+def main() -> None:
 	numero = 0
 	x =0
 	print("Digite um numero: ")
@@ -11,8 +11,6 @@ def main() -> int:
 		print("zero")
 	else:
 		print("Negativo")
-
-	return 0
 
 
 def verifica(n:int) -> int:

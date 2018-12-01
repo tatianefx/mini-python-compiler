@@ -4,17 +4,17 @@ def main() -> None:
     h = 0
     nome = ""
     sexo = ""
-    for x in range(0,5):
+    for x in range(0,1):
         print("Digite o nome: ")
         str(input(nome))
-        print("\nH - Homem ou M - Mulher")
+        print("H - Homem ou M - Mulher\n")
         str(input(sexo))
         if sexo == "H":
-            h = h+1
+            h = h + 1
         elif sexo == "M":
-            m = m+1
+            m = m + 1
         else:
-            print("\nSexo so pode ser H ou M!")
+            print("Sexo so pode ser H ou M!\n")
 
     print("\nForam inseridos ")
     print(h)
