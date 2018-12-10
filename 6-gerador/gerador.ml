@@ -8,6 +8,7 @@ let num_bytes t =
       INTEIRO -> 4
     | STRING -> 4
     | BOOLEAN -> 4
+    | REAL -> 4
     | NONE -> 4
 
 
@@ -157,7 +158,7 @@ let gerador oc cod arq =
   emite_rodape oc
 
 let compila arq =
-  let oc = open_out (Filename.chop_suffix arq ".tip" ^ ".s") in
+  let oc = open_out (Filename.chop_suffix arq ".py" ^ ".s") in
   let cod = traduz arq in
     gerador stdout cod arq;
     close_out oc
