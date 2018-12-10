@@ -1,0 +1,20 @@
+Para executar faça:
+
+Para gerar o arquivo com as mensagens de erro
+menhir -v --list-errors sintatico.mly > sintatico.messages
+menhir -v --list-errors sintatico.mly --compile-errors sintatico.messages >
+fnmes.ml
+
+Para gerar o compilador
+ocamlbuild -use-ocamlfind -use-menhir -menhir "menhir --table" -package menhirLib cod3endTest.byte
+
+Para usar:
+  rlwrap ocaml
+  #use "gerador.ml";;
+  let cod = traduz "tests/micro10.py";;
+
+  Se quiser ver o resultado na tela:
+  gerador stdout cod "tests/micro10.py";;
+
+  Se quiser que o resultado vá para um arquivo (que no caso é "exemplos/Tipos/ex8.s"):
+  compila "tests/micro10.py";;
