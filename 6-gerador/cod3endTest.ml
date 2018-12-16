@@ -215,7 +215,7 @@ let verifica_tipos nome =
   | _ -> failwith "Nada a fazer!\n"
 
 let traduz nome =
-  let (arv,tab) = verifica_tipos nome in
+  let arv,amb = verifica_tipos nome in
   tradutor arv
 
 let imprime_traducao cod =

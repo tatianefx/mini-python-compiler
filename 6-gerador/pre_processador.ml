@@ -42,12 +42,12 @@ let preprocessa lexbuf =
      Linha(nivel,npars,toks) ->
      let new_toks = off_side toks nivel in
      npar := npars;
-     new_toks @ (if npars = 0 
-                 then NOVALINHA :: get_tokens () 
+     new_toks @ (if npars = 0
+                 then NOVALINHA :: get_tokens ()
                  else get_tokens ())
 		| _ -> dedenta []
  in get_tokens ()
-			     
+
 
 (* Chama o analisador léxico *)
 let lexico =
@@ -58,7 +58,7 @@ let lexico =
        tok::toks ->
        tokbuf := Some toks;
        tok
-     | [] -> print_endline "EOF";
+     | [] -> print_endline "";
 	     EOF)
   in
   fun lexbuf ->
@@ -70,5 +70,3 @@ let lexico =
        tok
      | [] -> carrega lexbuf)
   | None -> carrega lexbuf
-
-

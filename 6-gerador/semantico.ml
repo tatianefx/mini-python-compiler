@@ -73,26 +73,26 @@ let rec infere_exp amb exp =
   | S.EXPBOOL  b -> (T.EXPBOOL  (fst b, A.BOOLEAN ), A.BOOLEAN )
   | S.EXPFLOAT f -> (T.EXPFLOAT (fst f, A.REAL), A.REAL)
   | S.EXPVAR v ->
-  (match v with
-     A.VarSimples nome ->
-     (* Tenta encontrar a definição da variável no escopo local, se não      *)
-     (* encontar tenta novamente no escopo que engloba o atual. Prossegue-se *)
-     (* assim até encontrar a definição em algum escopo englobante ou até    *)
-     (* encontrar o escopo global. Se em algum lugar for encontrado,         *)
-     (* devolve-se a definição. Em caso contrário, devolve uma exceção       *)
-     let id = fst nome in
-       (try (match (Amb.busca amb id) with
-             | Amb.EntVar tipo -> (T.EXPVAR (A.VarSimples nome, tipo), tipo)
-             | Amb.EntFun _ ->
-               let msg = "nome de funcao usado como nome de variavel: " ^ id in
-                failwith (msg_erro nome msg)
-           )
-        with Not_found ->
-               let msg = "A variavel " ^ id ^ " nao foi declarada" in
-               failwith (msg_erro nome msg)
-       )
-   | _ -> failwith "infere_exp: não implementado"
-  )
+    (match v with
+       A.VarSimples nome ->
+       (* Tenta encontrar a definição da variável no escopo local, se não      *)
+       (* encontar tenta novamente no escopo que engloba o atual. Prossegue-se *)
+       (* assim até encontrar a definição em algum escopo englobante ou até    *)
+       (* encontrar o escopo global. Se em algum lugar for encontrado,         *)
+       (* devolve-se a definição. Em caso contrário, devolve uma exceção       *)
+       let id = fst nome in
+         (try (match (Amb.busca amb id) with
+               | Amb.EntVar tipo -> (T.EXPVAR (A.VarSimples nome, tipo), tipo)
+               | Amb.EntFun _ ->
+                 let msg = "nome de funcao usado como nome de variavel: " ^ id in
+                  failwith (msg_erro nome msg)
+             )
+          with Not_found ->
+                 let msg = "A variavel " ^ id ^ " nao foi declarada" in
+                 failwith (msg_erro nome msg)
+         )
+     | _ -> failwith "infere_exp: não implementado"
+    )
   | S.EXPOPB (op, exp_esq, exp_dir) ->
       let (esq, tesq) = infere_exp amb exp_esq
       and (dir, tdir) = infere_exp amb exp_dir in
@@ -310,31 +310,14 @@ let rec verifica_cmd amb tiporet cmd =
           )
         )
     | ATRIBUICAO (elem, exp) ->
-        let (var1, tdir) = infere_exp amb exp in
-        ( match elem with
-          S.EXPVAR v ->
-          (match v with
-             A.VarSimples nome ->
-             let id = fst nome
-             and pos = snd nome in
-           (try
-              begin
-                (match (Amb.busca amb id) with
-                    Amb.EntVar tipo ->
-                      let _ = mesmo_tipo pos
-                        "Atribuicao com tipos diferentes: %s = %s"
-                        tipo tdir in
-                        ATRIBUICAO (T.EXPVAR (A.VarSimples nome, tipo), var1)
-                  | Amb.EntFun _ ->
-                      let msg = "nome de funcao usado como nome de variavel: " ^ id in
-                      failwith (msg_erro_pos pos msg) )
-              end
-            with Not_found ->
-              let _ = Amb.insere_local amb id tdir in
-              ATRIBUICAO (T.EXPVAR (A.VarSimples nome, tdir), var1))
-          | _ -> failwith "Falha ATRIBUICAO"
-          )
-        )
+      (* Infere o tipo da expressão no lado direito da atribuição *)
+      let (exp,  tdir) = infere_exp amb exp
+      (* Faz o mesmo para o lado esquerdo *)
+      and (elem1, tesq) = infere_exp amb elem in
+      (* Os dois tipos devem ser iguais *)
+      let _ = mesmo_tipo (posicao elem)
+                         "Atribuicao com tipos diferentes: %s = %s" tesq tdir
+      in ATRIBUICAO (elem1, exp)
     | RETORNO exp ->
       (match exp with
      (* Se a função não retornar nada, verifica se ela foi declarada como void *)
@@ -386,6 +369,15 @@ let rec verifica_cmd amb tiporet cmd =
       (* Verifica a validade de cada comando do bloco  *)
       let bloco1 = List.map (verifica_cmd amb tiporet) bloco in
         FORLOOP (idt1, int_de1,int_ate1,bloco1)
+    | CmdEntrada exps ->
+      (* Verifica o tipo de cada argumento da função 'entrada' *)
+      let exps = List.map (infere_exp amb) exps in
+      CmdEntrada (List.map fst exps)
+
+    | CmdSaida exps ->
+      (* Verifica o tipo de cada argumento da função 'saida' *)
+      let exps = List.map (infere_exp amb) exps in
+      CmdSaida (List.map fst exps)
 
 and verifica_fun amb ast =
   let open A in
@@ -426,7 +418,7 @@ let insere_declaracao_fun amb dec =
       let formais = verifica_dup fn_formais in
       let nome = fst fn_nome in
       Amb.insere_fun amb nome formais fn_tiporet
-    | _ -> failwith "Instrucao invalida"
+    | ACMD _ -> failwith "Instrucao invalida"
 
 let fn_predefs =
   let open A in [
@@ -438,13 +430,13 @@ let declara_predefinidas amb =
   List.iter (fun (n,ps,tr) -> Amb.insere_fun amb n ps tr) fn_predefs
 
 let semantico ast =
-  (* cria ambiente global inicialmente vazio *)
   let amb_global = Amb.novo_amb [] in
   let _ = declara_predefinidas amb_global in
-  let (A.Programa (decs_globais, decs_funs)) = ast in
-  let _ = List.iter (insere_declaracao_var amb_global) decs_globais in
-  let _ = List.iter (insere_declaracao_fun amb_global) decs_funs in
-  (* Verificação de tipos nas funções *)
-  let decs_funs = List.map (verifica_fun amb_global) decs_funs in
-  (* Verificação de tipos na função principal *)
-     (A.Programa (decs_globais, decs_funs),  amb_global)
+  let A.Programa instr = ast in
+  let decs_funs = List.filter(fun x ->
+    (match x with
+    | A.Funcao _ -> true
+    | _          -> false)) instr in
+    let _ = List.iter (insere_declaracao_fun amb_global) decs_funs in
+      let decs_funs = List.map (verifica_fun amb_global) decs_funs in
+      (A.Programa decs_funs, amb_global)

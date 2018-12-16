@@ -4,21 +4,21 @@ type identificador = string
 (*posicao no arquivo*)
 type 'a pos = 'a * Lexing.position
 
-type 'expr programa = Programa of declaracoes * ('expr funcoes) 
-and declaracoes = declaracao list
-and 'expr funcoes = ('expr funcao) list
-and 'expr comandos = ('expr comando) list
-
+type 'expr programa = Programa of 'expr instrucoes
+and 'expr comandos = 'expr comando list
+and 'expr instrucoes = 'expr instrucao list
+and 'expr expressoes = 'expr list
 and declaracao = DecVar of (identificador pos) * tipo
-
-and 'expr funcao = Funcao of ('expr decfn)
-
+and declaracoes = declaracao list
+and 'expr instrucao =
+	Funcao of 'expr decfn
+	| ACMD of 'expr comando
 and 'expr decfn = {
-  fn_nome:    identificador pos;
-  fn_tiporet: tipo;
-  fn_formais: (identificador pos * tipo) list;
-  fn_locais:  declaracoes;
-  fn_corpo:   'expr comandos
+	fn_nome: identificador pos;
+	fn_tiporet: tipo;
+	fn_formais: (identificador pos * tipo) list;
+	fn_locais:  declaracoes;
+	fn_corpo: 'expr comandos
 }
 
 and tipo =
@@ -40,13 +40,14 @@ and 'expr comando =
 				| LEIAF of 'expr
 				| LEIAS of 'expr
 				| CHAMADADEFUNCAO of 'expr
+				| CmdEntrada of ('expr expressoes)
+				| CmdSaida of ('expr expressoes)
 
 and 'expr variaveis = ('expr variavel) list
 and 'expr variavel =
   | VarSimples of identificador pos
   | VarCampo of ('expr variavel) * (identificador pos)
   | VarElemento of ('expr variavel) * 'expr
-and 'expr expressoes = 'expr list
 
 and operador =
 				 ADICAO

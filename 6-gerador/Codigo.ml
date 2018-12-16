@@ -3,8 +3,10 @@ open Tast
 
 type endereco =
      Nome of string
+   | ConstString of string
    | ConstInt of int
    | ConstFloat of float
+   | ConstBool of bool
    | Temp of int
 and instrucao =
      AtribBin of endereco * endereco * opBin * endereco  (* x = y op z *)
@@ -21,6 +23,7 @@ and instrucao =
    | Global of string * Ast.tipo
    | CallFn of endereco * string *  (endereco * Ast.tipo) list * Ast.tipo   (* x = call p,n,t *)
    | Return of endereco option
+   | Imprime of endereco
    | BeginFun of string * int * int      (* beginFun p,nparam, nlocais *)
    | EndFun
    | Rotulo of string

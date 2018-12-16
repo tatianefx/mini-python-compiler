@@ -4,6 +4,10 @@ open Ast
 open Tast
 open Codigo
 
+module Amb = AmbInterp
+
+exception Valor_de_retorno of expressao
+
 let conta_temp = ref 0
 let conta_rotulos = ref (Hashtbl.create 5)
 
@@ -99,6 +103,7 @@ let rec escreve_cod3 c =
     (match x with
        None   -> "return\n"
      | Some x -> sprintf "return %s\n" (endr_to_str x) )
+  | Imprime x -> sprintf "printf %s\n" (endr_to_str x)
   | BeginFun (id,np,nl) -> sprintf "beginFun %s(%d,%d)\n" id np nl
   | EndFun -> "endFun\n\n"
   | Rotulo r -> sprintf "%s: " r
@@ -121,8 +126,17 @@ let pega_tipo exp =
   | _ -> failwith "pega_tipo: não implementado"
 
 
-let rec traduz_exp exp =
+let rec traduz_exp amb exp =
   match exp with
+  | EXPFLOAT (n, REAL) ->
+     let t = novo_temp () in
+    (t, [Copia (t, ConstFloat n)])
+  | EXPSTRING (n, STRING) ->
+     let t = novo_temp () in
+    (t, [Copia (t, ConstString n)])
+  | EXPBOOL (n, BOOLEAN) ->
+     let t = novo_temp () in
+    (t, [Copia (t, ConstBool n)])
   | EXPINT (n, INTEIRO) ->
      let t = novo_temp () in
     (t, [Copia (t, ConstInt n)])
@@ -130,18 +144,25 @@ let rec traduz_exp exp =
     (match v with
        VarSimples nome ->
        let id = fst nome in
-       ((Nome id), [])
-     | _ -> failwith "traduz_exp: não implementado"
+       (match (Amb.busca amb id) with
+         | Amb.EntVar (_, va) ->
+           (match va with
+             | Some valor -> valor; ((Nome id), [])
+             | None       -> failwith "variável nao inicializada: "
+           )
+         |  _ -> failwith "interpreta_exp: expvar"
+       )
+       | _ -> failwith "traduz_exp: não implementado"
     )
   | EXPOPB (op, exp1, exp2) ->
-    let (endr1, codigo1) = let (e1,t1) = exp1 in traduz_exp e1
-    and (endr2, codigo2) = let (e2,t2) = exp2 in traduz_exp e2
+    let (endr1, codigo1) = let (e1,t1) = exp1 in (traduz_exp amb) e1
+    and (endr2, codigo2) = let (e2,t2) = exp2 in (traduz_exp amb) e2
     and t = novo_temp () in
     let codigo = codigo1 @ codigo2 @ [AtribBin (t, endr1, op, endr2)] in
     (t, codigo)
 
   | EXPCALL (id, args, tipo_fn) ->
-      let (enderecos, codigos) = List.split (List.map traduz_exp args) in
+      let (enderecos, codigos) = List.split (List.map (traduz_exp amb) args) in
       let tipos = List.map pega_tipo args in
       let endr_tipos = List.combine enderecos tipos
       and t = novo_temp () in
@@ -152,27 +173,30 @@ let rec traduz_exp exp =
   | _ -> failwith "traduz_exp: não implementado"
 
 
-let rec traduz_cmd cmd =
+let rec traduz_cmd amb cmd =
   match cmd with
   | RETORNO exp ->
     (match exp with
      | None -> [Return None]
      | Some e ->
-       let (endr_exp, codigo_exp) = traduz_exp e in
+       let (endr_exp, codigo_exp) = (traduz_exp amb) e in
        codigo_exp @ [Return (Some endr_exp)]
     )
+  | PRINT exp ->
+      let (endr_exp, codigo_exp) = (traduz_exp amb) exp in
+      codigo_exp @ [Imprime endr_exp]
   | ATRIBUICAO (elem, EXPINT (n, INTEIRO)) ->
-    let (endr_elem, codigo_elem) = traduz_exp elem
+    let (endr_elem, codigo_elem) = (traduz_exp amb) elem
     in codigo_elem @ [Copia (endr_elem, ConstInt n)]
 
   | ATRIBUICAO (elem, exp) ->
-    let (endr_exp, codigo_exp) = traduz_exp exp
-    and (endr_elem, codigo_elem) = traduz_exp elem in
+    let (endr_exp, codigo_exp) = (traduz_exp amb) exp
+    and (endr_elem, codigo_elem) = (traduz_exp amb) elem in
     let codigo = codigo_exp @ codigo_elem @ [Copia (endr_elem, endr_exp)]
     in codigo
   | CONDICAOIF (teste, entao, senao) ->
-    let (endr_teste, codigo_teste) = traduz_exp teste
-    and codigo_entao = traduz_cmds entao
+    let (endr_teste, codigo_teste) = (traduz_exp amb) teste
+    and codigo_entao = traduz_cmds amb entao
     and rotulo_falso = novo_rotulo "L" in
     (match senao with
         | None -> codigo_teste @
@@ -180,7 +204,7 @@ let rec traduz_cmd cmd =
                   codigo_entao @
                   [rotulo_falso]
         | Some cmds ->
-          let codigo_senao = traduz_cmds [cmds]
+          let codigo_senao = traduz_cmds amb [cmds]
           and rotulo_fim = novo_rotulo "L" in
               codigo_teste @
               [IfFalse (endr_teste, rotulo_falso)] @
@@ -190,36 +214,41 @@ let rec traduz_cmd cmd =
               [rotulo_fim]
     )
   | CONDICAOElifElse comandos ->
-        traduz_cmds comandos
+        traduz_cmds amb comandos
   | CHAMADADEFUNCAO (EXPCALL (id, args, tipo_fn)) ->
-      let (enderecos, codigos) = List.split (List.map traduz_exp args) in
+      let (enderecos, codigos) = List.split (List.map (traduz_exp amb) args) in
       let tipos = List.map pega_tipo args in
       let endr_tipos = List.combine enderecos tipos in
       (List.concat codigos) @
       [Call (id, endr_tipos, tipo_fn)]
 
-  (* | CmdSaida args ->
-      let (enderecos, codigos) = List.split (List.map traduz_exp args) in
+  | CmdSaida args ->
+      let (enderecos, codigos) = List.split (List.map (traduz_exp amb) args) in
       let tipos = List.map pega_tipo args in
       let endr_tipos = List.combine enderecos tipos in
       (List.concat codigos) @
-      [Call ("print", endr_tipos, NONE)] *)
+      [Call ("print", endr_tipos, NONE)]
 
   | _ -> failwith "traduz_cmd: não implementado"
 
 
-and traduz_cmds cmds =
+and traduz_cmds amb cmds =
   match cmds with
   | [] -> []
   | cmd :: cmds ->
-     let codigo = traduz_cmd cmd in
-     codigo @ traduz_cmds cmds
+     let codigo = traduz_cmd amb cmd in
+     codigo @ traduz_cmds amb cmds
 
-let traduz_fun ast =
+let traduz_fun amb ast =
   let trad_local x =
     match x with
       DecVar ((id,pos),t) -> Local (id,t)
   in
+  (* Estende o ambiente global, adicionando um ambiente local *)
+  let ambfn = Amb.novo_escopo amb in
+  (* Associa os argumento
+  s aos parâmetros e insere no novo ambiente *)
+  let insere_parametro (n,t,v) = Amb.insere_param ambfn n t v in
   match ast with
     Funcao {fn_nome; fn_tiporet; fn_formais; fn_locais; fn_corpo} ->
     let nome = fst fn_nome
@@ -227,19 +256,43 @@ let traduz_fun ast =
     and nformais = List.length fn_formais
     and locais = List.map trad_local fn_locais
     and nlocais = List.length fn_locais
-    and corpo = traduz_cmds fn_corpo
-    in
+    and corpo = traduz_cmds ambfn fn_corpo in
     [BeginFun (nome,nformais,nlocais)] @ formais @ locais @ corpo @ [EndFun]
 
+let insere_declaracao_fun amb dec =
+    match dec with
+      | Funcao {fn_nome; fn_tiporet; fn_formais; fn_locais; fn_corpo} ->
+        let nome = fst fn_nome in
+        let formais = List.map (fun (n,t) -> ((fst n), t)) fn_formais in
+        Amb.insere_fun amb nome formais fn_tiporet fn_corpo
+      | _ -> failwith "Erro de declaacao de funcao"
+
+let fn_predefs = [
+    ("inputi", [("x", INTEIRO  )], NONE, []);
+    ("inputf", [("x", REAL     )], NONE, []);
+    ("inputs", [("x", STRING   )], NONE, []);
+
+]
+
+(* insere as funções pré definidas no ambiente global *)
+let declara_predefinidas amb =
+  List.iter (fun (n,ps,tr,c) -> Amb.insere_fun amb n ps tr c) fn_predefs
 
 let tradutor ast_tipada =
-  let trad_global x =
-    match x with
-      DecVar ((id,pos),t) -> Global (id,t)
-  in
-  let _ = zera_contadores () in
-  let (Programa (decs_globais, decs_funs)) = ast_tipada in
-  let globais_trad = List.map trad_global decs_globais in
-  let funs_trad = List.map traduz_fun decs_funs in
-  globais_trad @ (List.concat funs_trad) @
-  [BeginFun ("main",0,0)] @ [EndFun]
+  let open Amb in
+  let amb_global = Amb.novo_amb [] in
+  let _ = declara_predefinidas amb_global in
+  let Programa instr = ast_tipada in
+    let decs_funs = List.filter (fun x ->
+    (match x with
+    | Funcao _ -> true
+    |          _ -> false)) instr in
+    let _ = List.iter (insere_declaracao_fun amb_global) decs_funs in
+      (try begin
+        (match (Amb.busca amb_global "main") with
+            | Amb.EntFun { tipo_fn ; formais ; corpo } ->
+              let vformais = List.map (fun (n,t) -> (n, t, None)) formais in
+              let _        = List.map (traduz_fun amb_global) decs_funs in
+              [BeginFun ("main",0,0)] @ [EndFun]
+            | _ -> failwith "variavel declarada como 'main'")
+       end with Not_found -> failwith "Funcao main nao declarada ")

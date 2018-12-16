@@ -15,6 +15,7 @@ let () =
 #load "tabsimb.cmo";;
 #load "ambiente.cmo";;
 #load "semantico.cmo";;
+#load "ambInterp.cmo";;
 #load "Codigo.cmo";;
 #load "Cod3End.cmo";;
 #load "cod3endTest.cmo";;

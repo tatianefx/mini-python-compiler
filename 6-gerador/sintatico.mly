@@ -40,35 +40,40 @@
 
 %%
 
-programa: ds = declaracao_de_variavel*
-          fs = declaracao_de_funcao*
-          EOF { Programa (List.flatten ds, fs) }
-
+programa: ins=instrucao*
+     EOF
+     {Programa ins }
 
 declaracao_de_variavel:
-  ids = separated_nonempty_list(VIRG, ID) DPONTOS t = tipo {
-                   List.map (fun id -> DecVar (id,t)) ids  }
+ ids = separated_nonempty_list(VIRG, ID) DPONTOS t = tipo NOVALINHA {
+                  List.map (fun id -> DecVar (id,t)) ids  }
 
-declaracao_de_funcao:
-	DEF nome= ID
-	APAR args = separated_list(VIRG, parametro) FPAR
-	SETA retorno = tipo DPONTOS NOVALINHA
-	INDENTA
-	ds = declaracao_de_variavel*
-	cmd = comandos
-	DEDENTA
-	{
-	 Funcao {
-		 fn_nome = nome;
-		 fn_tiporet = retorno;
-		 fn_formais = args;
-		 fn_locais = List.flatten ds;
-		 fn_corpo = cmd
-	 }
-	}
+funcao:
+   	 DEF nome= ID
+   	 APAR args = separated_list(VIRG, parametro) FPAR
+   	 SETA retorno = tipo DPONTOS NOVALINHA
+   	 INDENTA
+		 ds = declaracao_de_variavel*
+   	 cmd = comandos
+   	 DEDENTA
+   	 {
+   	 	Funcao {
+   	 		fn_nome = nome;
+   	 		fn_tiporet = retorno;
+   	 		fn_formais = args;
+				fn_locais = List.flatten ds;
+   	 		fn_corpo = cmd
+   	 	}
+   	 }
 
 parametro:
     |  id = ID  DPONTOS tp = tipo { (id,tp) }
+
+
+ /*esse eh o meu stm_block */
+instrucao:
+	| func = funcao  		{     func 	}
+	| cmd = comando 		{ ACMD(cmd) }
 
 comandos:
 	cmd = comando+ { cmd }
@@ -102,6 +107,14 @@ chamadafuncao:
 
 chamada : nome=ID APAR args=separated_list(VIRG, exprLogicoAritmetica) FPAR { EXPCALL (nome, args) }
 
+comando_entrada: xs=separated_nonempty_list(VIRG, exprLogicoAritmetica) NOVALINHA {
+                   CmdEntrada xs
+               }
+
+comando_saida: xs=separated_nonempty_list(VIRG, exprLogicoAritmetica) NOVALINHA {
+                 CmdSaida xs
+         }
+
 condicaoIF:
 	| IF exprla= exprLogicoAritmetica  DPONTOS NOVALINHA
 		INDENTA stm=comandos DEDENTA
@@ -114,7 +127,7 @@ condicaoELIFELSE:
 	| ELSE DPONTOS NOVALINHA INDENTA stm=comandos DEDENTA {CONDICAOElifElse( stm ) }
 	;
 
-atribuicao: id = variavel ATRIB exprla = exprLogicoAritmetica NOVALINHA   { ATRIBUICAO (EXPVAR id , exprla) }
+atribuicao: id = exprLogicoAritmetica ATRIB exprla = exprLogicoAritmetica NOVALINHA   { ATRIBUICAO (id , exprla) }
 
 leiai: INT APAR INPUT exp=exprLogicoAritmetica FPAR   { LEIAI exp }
 leiaf: FLOAT APAR INPUT exp=exprLogicoAritmetica FPAR { LEIAF exp }
