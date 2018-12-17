@@ -310,14 +310,31 @@ let rec verifica_cmd amb tiporet cmd =
           )
         )
     | ATRIBUICAO (elem, exp) ->
-      (* Infere o tipo da expressão no lado direito da atribuição *)
-      let (exp,  tdir) = infere_exp amb exp
-      (* Faz o mesmo para o lado esquerdo *)
-      and (elem1, tesq) = infere_exp amb elem in
-      (* Os dois tipos devem ser iguais *)
-      let _ = mesmo_tipo (posicao elem)
-                         "Atribuicao com tipos diferentes: %s = %s" tesq tdir
-      in ATRIBUICAO (elem1, exp)
+        let (var1, tdir) = infere_exp amb exp in
+        ( match elem with
+          S.EXPVAR v ->
+          (match v with
+             A.VarSimples nome ->
+             let id = fst nome
+             and pos = snd nome in
+           (try
+              begin
+                (match (Amb.busca amb id) with
+                    Amb.EntVar tipo ->
+                      let _ = mesmo_tipo pos
+                        "Atribuicao com tipos diferentes: %s = %s"
+                        tipo tdir in
+                        ATRIBUICAO (T.EXPVAR (A.VarSimples nome, tipo), var1)
+                  | Amb.EntFun _ ->
+                      let msg = "nome de funcao usado como nome de variavel: " ^ id in
+                      failwith (msg_erro_pos pos msg) )
+              end
+            with Not_found ->
+              let _ = Amb.insere_local amb id tdir in
+              ATRIBUICAO (T.EXPVAR (A.VarSimples nome, tdir), var1))
+          | _ -> failwith "Falha ATRIBUICAO"
+          )
+        )
     | RETORNO exp ->
       (match exp with
      (* Se a função não retornar nada, verifica se ela foi declarada como void *)

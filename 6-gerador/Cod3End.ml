@@ -221,6 +221,13 @@ let rec traduz_cmd amb cmd =
       let endr_tipos = List.combine enderecos tipos in
       (List.concat codigos) @
       [Call (id, endr_tipos, tipo_fn)]
+  | WHILELOOP (teste, cmd) ->
+     let (endr_teste, codigo_teste) = traduz_exp amb teste
+     and codigo_verdadeiro = traduz_cmds amb cmd
+     and rotulo_comeco = novo_rotulo "L"
+     and rotulo_falso = novo_rotulo "L" in
+     [rotulo_comeco] @ codigo_teste  @ [IfFalse (endr_teste, rotulo_falso)] @ codigo_verdadeiro @ [Goto rotulo_comeco] @
+       [rotulo_falso]
 
   | CmdSaida args ->
       let (enderecos, codigos) = List.split (List.map (traduz_exp amb) args) in
@@ -271,7 +278,6 @@ let fn_predefs = [
     ("inputi", [("x", INTEIRO  )], NONE, []);
     ("inputf", [("x", REAL     )], NONE, []);
     ("inputs", [("x", STRING   )], NONE, []);
-
 ]
 
 (* insere as funções pré definidas no ambiente global *)
@@ -286,13 +292,13 @@ let tradutor ast_tipada =
     let decs_funs = List.filter (fun x ->
     (match x with
     | Funcao _ -> true
-    |          _ -> false)) instr in
+    |        _ -> false)) instr in
     let _ = List.iter (insere_declaracao_fun amb_global) decs_funs in
       (try begin
         (match (Amb.busca amb_global "main") with
             | Amb.EntFun { tipo_fn ; formais ; corpo } ->
               let vformais = List.map (fun (n,t) -> (n, t, None)) formais in
-              let _        = List.map (traduz_fun amb_global) decs_funs in
-              [BeginFun ("main",0,0)] @ [EndFun]
+              let corpos    = List.map (traduz_fun amb_global) decs_funs in
+              List.flatten corpos @ [BeginFun ("main",0,0)] @ [EndFun]
             | _ -> failwith "variavel declarada como 'main'")
        end with Not_found -> failwith "Funcao main nao declarada ")
