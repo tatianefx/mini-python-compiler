@@ -1,4 +1,9 @@
-def main() -> None:
-    n = 1 + 2
-
-main()
+def main() -> int:
+    print("Teste")
+    if 1 > 2:
+        return 1
+    elif 1 == 3:
+        return 4
+    else:
+        return 2
+    return 0

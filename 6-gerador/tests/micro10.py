@@ -1,5 +1,5 @@
 def main() -> None:
-	numero =0
+	numero = 0
 	fat = 0
 	print("Digite um numero: ")
 	int(input(numero))

@@ -1,4 +1,4 @@
-def main() -> None:
-    n = (int)
+def main() -> int:
+    return 0
 
 main()

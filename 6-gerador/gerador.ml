@@ -63,6 +63,22 @@ let rec emite_corpo oc tbl cod =
                             i n n i
         in emite_corpo oc tbl cod
     end
+  | If (endr, inst) :: cod ->
+    let _ =
+          (match endr with
+            | Temp n -> let _ = fprintf oc "	if	$%d goto L%d:\nL%d:" n n n in
+            emite_corpo oc tbl [inst]
+            | _ -> failwith "emite_corpo: endereco nao implementado"
+          )
+    in emite_corpo oc tbl cod
+  | IfFalse (endr, inst) :: cod ->
+    let _ =
+          (match endr with
+            | Temp n -> let _ = fprintf oc "	ifFalse	$%d goto L%d:\nL%d:" n n n in
+            emite_corpo oc tbl [inst]
+            | _ -> failwith "emite_corpo: endereco nao implementado"
+          )
+    in emite_corpo oc tbl cod
   | Return opcao :: cod ->
     let _ =
       (match opcao with
@@ -80,7 +96,29 @@ let rec emite_corpo oc tbl cod =
                     fprintf oc "	movl	%s(%%rip), %%eax       # EAX <- %s\n"
                                 n n
             end
-          | _ -> failwith "emite_corpo: endereco nao implementado"
+          | ConstInt n ->
+            begin
+                try
+                let deslocamento = Hashtbl.find tbl endr in
+                fprintf oc "	movl	%d(%%rbp), %%eax       # EAX <- %d\n"
+                           deslocamento n
+                with
+                  Not_found -> (* Assume que é uma variável global *)
+                    fprintf oc "	movl	%d(%%rip), %%eax       # EAX <- %d\n"
+                                n n
+            end
+          | Temp n ->
+            begin
+                try
+                let deslocamento = Hashtbl.find tbl endr in
+                fprintf oc "	movl	%d(%%rbp), %%eax       # EAX <- %d\n"
+                           deslocamento n
+                with
+                  Not_found -> (* Assume que é uma variável global *)
+                    fprintf oc "	movl	%d(%%rip), %%eax       # EAX <- %d\n"
+                                n n
+            end
+          | _ -> failwith "emite_corpo: endereco nao implementado Return"
           )
        )
     in emite_corpo oc tbl cod
@@ -91,7 +129,7 @@ let rec emite_corpo oc tbl cod =
     let _ =
           (match endr with
             | Temp n -> fprintf oc "	printf	$%d\n" n
-            | _ -> failwith "emite_corpo: endereco nao implementado"
+            | _ -> failwith "emite_corpo: endereco nao implementado Imprime"
           )
     in emite_corpo oc tbl cod
   | _ :: cod -> emite_corpo oc tbl cod

@@ -172,7 +172,6 @@ let rec traduz_exp amb exp =
         (t, codigo)
   | _ -> failwith "traduz_exp: não implementado"
 
-
 let rec traduz_cmd amb cmd =
   match cmd with
   | RETORNO exp ->
@@ -188,8 +187,37 @@ let rec traduz_cmd amb cmd =
   | ATRIBUICAO (elem, EXPINT (n, INTEIRO)) ->
     let (endr_elem, codigo_elem) = (traduz_exp amb) elem
     in codigo_elem @ [Copia (endr_elem, ConstInt n)]
-
+  | ATRIBUICAO (elem, EXPFLOAT (n, REAL)) ->
+    let (endr_elem, codigo_elem) = (traduz_exp amb) elem
+    in codigo_elem @ [Copia (endr_elem, ConstFloat n)]
+  | ATRIBUICAO (elem, EXPSTRING (n, STRING)) ->
+    let (endr_elem, codigo_elem) = (traduz_exp amb) elem
+    in codigo_elem @ [Copia (endr_elem, Nome n)]
+  | ATRIBUICAO (elem, EXPBOOL (n, BOOLEAN)) ->
+    let (endr_elem, codigo_elem) = (traduz_exp amb) elem
+    in codigo_elem @ [Copia (endr_elem, ConstBool n)]
   | ATRIBUICAO (elem, exp) ->
+    (* let (var1, tdir) = traduz_exp amb exp in
+    ( match elem with
+      EXPVAR (v, t) ->
+      (match v with
+         VarSimples nome ->
+         let id = fst nome
+         and pos = snd nome in
+       (try
+          begin
+            (match (Amb.busca amb id) with
+                Amb.EntVar (tipo, texp ) ->
+                  ATRIBUICAO (EXPVAR (VarSimples nome, tipo), var1)
+              | Amb.EntFun _ ->
+                  failwith "traduz_cmd: não implementado" )
+          end
+        with Not_found ->
+          let _ = Amb.insere_local amb id tdir in
+          ATRIBUICAO (EXPVAR (VarSimples nome, tdir), var1))
+      | _ -> failwith "Falha ATRIBUICAO"
+      )
+    ) *)
     let (endr_exp, codigo_exp) = (traduz_exp amb) exp
     and (endr_elem, codigo_elem) = (traduz_exp amb) elem in
     let codigo = codigo_exp @ codigo_elem @ [Copia (endr_elem, endr_exp)]
