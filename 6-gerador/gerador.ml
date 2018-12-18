@@ -66,18 +66,25 @@ let rec emite_corpo oc tbl cod =
   | If (endr, inst) :: cod ->
     let _ =
           (match endr with
-            | Temp n -> let _ = fprintf oc "	if	$%d goto L%d:\nL%d:" n n n in
-            emite_corpo oc tbl [inst]
+            | Temp n -> let _ = fprintf oc "  if $%d goto" n
+            in emite_corpo oc tbl [inst]
             | _ -> failwith "emite_corpo: endereco nao implementado"
           )
     in emite_corpo oc tbl cod
   | IfFalse (endr, inst) :: cod ->
     let _ =
           (match endr with
-            | Temp n -> let _ = fprintf oc "	ifFalse	$%d goto L%d:\nL%d:" n n n in
-            emite_corpo oc tbl [inst]
+            | Temp n -> let _ = fprintf oc "	ifFalse	$%d goto" n
+            in emite_corpo oc tbl [inst]
             | _ -> failwith "emite_corpo: endereco nao implementado"
           )
+    in emite_corpo oc tbl cod
+  | Goto inst :: cod ->
+    let _ = fprintf oc "goto "
+    and _ = emite_corpo oc tbl [inst]
+    in emite_corpo oc tbl cod
+  | Rotulo str :: cod ->
+    let _ = fprintf oc " %s:\n" str
     in emite_corpo oc tbl cod
   | Return opcao :: cod ->
     let _ =
