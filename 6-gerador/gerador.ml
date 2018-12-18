@@ -84,7 +84,7 @@ let rec emite_corpo oc tbl cod =
     and _ = emite_corpo oc tbl [inst]
     in emite_corpo oc tbl cod
   | Rotulo str :: cod ->
-    let _ = fprintf oc " %s:\n" str
+    let _ = fprintf oc "%s:\n" str
     in emite_corpo oc tbl cod
   | Return opcao :: cod ->
     let _ =
