@@ -87,6 +87,13 @@ let rec emite_corpo oc tbl cod =
   | EndFun :: cod ->
     let _ =  fprintf oc "	leave\n	ret\n"
     in cod
+  | Imprime endr :: cod ->
+    let _ =
+          (match endr with
+            | Temp n -> fprintf oc "	printf	$%d\n" n
+            | _ -> failwith "emite_corpo: endereco nao implementado"
+          )
+    in emite_corpo oc tbl cod
   | _ :: cod -> emite_corpo oc tbl cod
   | [] -> []
 

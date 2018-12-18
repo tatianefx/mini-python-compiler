@@ -3,7 +3,6 @@ open Tast
 
 type endereco =
      Nome of string
-   | ConstString of string
    | ConstInt of int
    | ConstFloat of float
    | ConstBool of bool

@@ -133,7 +133,7 @@ let rec traduz_exp amb exp =
     (t, [Copia (t, ConstFloat n)])
   | EXPSTRING (n, STRING) ->
      let t = novo_temp () in
-    (t, [Copia (t, ConstString n)])
+    (t, [Copia (t, Nome n)])
   | EXPBOOL (n, BOOLEAN) ->
      let t = novo_temp () in
     (t, [Copia (t, ConstBool n)])
@@ -299,6 +299,6 @@ let tradutor ast_tipada =
             | Amb.EntFun { tipo_fn ; formais ; corpo } ->
               let vformais = List.map (fun (n,t) -> (n, t, None)) formais in
               let corpos    = List.map (traduz_fun amb_global) decs_funs in
-              List.flatten corpos @ [BeginFun ("main",0,0)] @ [EndFun]
+              List.flatten corpos
             | _ -> failwith "variavel declarada como 'main'")
        end with Not_found -> failwith "Funcao main nao declarada ")
